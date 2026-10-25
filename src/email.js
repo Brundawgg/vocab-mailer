@@ -2,7 +2,7 @@
 const questions = require("./questions");
 
 const PRACTICE_URL = "https://brundawgg.github.io/vocab-mailer/";
-const POS_NAME = { adjective: "adjective", verb: "verb", noun: "noun", phrase: "phrase", conjunction: "conjunction" };
+const POS_NAME = { adjective: "adjective", verb: "verb", noun: "noun", phrase: "phrase", conjunction: "conjunction", adverb: "adverb", preposition: "preposition" };
 const CONTEXTS = [["interview", "In an interview"], ["finance", "In finance"], ["everyday", "In conversation"]];
 
 const FONT = "font-family:Georgia,'Times New Roman',Times,serif;";
