@@ -89,7 +89,7 @@ async function main() {
   const { GMAIL_USER, GMAIL_APP_PASSWORD, TO_EMAIL } = process.env;
   if (!GMAIL_USER || !GMAIL_APP_PASSWORD || !TO_EMAIL) throw new Error("Set GMAIL_USER, GMAIL_APP_PASSWORD and TO_EMAIL");
   const transport = nodemailer.createTransport({ host: "smtp.gmail.com", port: 465, secure: true, auth: { user: GMAIL_USER, pass: GMAIL_APP_PASSWORD } });
-  await transport.sendMail({ from: `Lexicon <${GMAIL_USER}>`, to: TO_EMAIL, subject: email.subject, html: email.html, text: email.text });
+  await transport.sendMail({ from: `Words <${GMAIL_USER}>`, to: TO_EMAIL, subject: email.subject, html: email.html, text: email.text });
   if (test) return console.log(`Test email "${email.subject}" sent`);
 
   state[key] = { subject: email.subject, at: new Date().toISOString() };
