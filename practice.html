@@ -1,0 +1,2196 @@
+<title>Lexicon</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+/* Layout: one narrow dictionary column. Headwords in Caslon, everything else in Source Serif, black ink on paper, thin rules between sections like the daily email. */
+:root {
+  --paper: #ffffff;
+  --ink: #141414;
+  --muted: #67645f;
+  --rule: #dcdad6;
+  --soft: #f5f5f3;
+  --right: #1f6b3a;
+  --right-bg: #eef5ef;
+  --wrong: #a3301f;
+  --wrong-bg: #f9edeb;
+  --display: "Libre Caslon Text", Georgia, "Times New Roman", serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #121212;
+    --ink: #ecebe8;
+    --muted: #9c9993;
+    --rule: #34332f;
+    --soft: #1b1b1a;
+    --right: #82c79a;
+    --right-bg: #15241a;
+    --wrong: #f0907f;
+    --wrong-bg: #2b1714;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #121212;
+  --ink: #ecebe8;
+  --muted: #9c9993;
+  --rule: #34332f;
+  --soft: #1b1b1a;
+  --right: #82c79a;
+  --right-bg: #15241a;
+  --wrong: #f0907f;
+  --wrong-bg: #2b1714;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.5;
+  margin: 0;
+}
+.wrap {
+  max-width: 600px;
+  margin: 0 auto;
+  padding-block: 24px 72px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+.brand { font-family: var(--display); font-size: 22px; letter-spacing: .01em; }
+.status { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.stack { display: flex; flex-direction: column; gap: 14px; }
+.section { display: flex; flex-direction: column; gap: 12px; margin-top: 40px; }
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0;
+}
+h1 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(28px, 6vw, 36px);
+  line-height: 1.18;
+  text-wrap: balance;
+  margin: 0;
+}
+h2 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 22px;
+  margin: 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--ink);
+}
+p { margin: 0; }
+.lede { color: var(--muted); max-width: 34em; }
+.note { font-size: 14px; color: var(--muted); }
+
+.actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.btn {
+  font: inherit;
+  font-size: 17px;
+  padding: 12px 20px;
+  border: 1px solid var(--ink);
+  cursor: pointer;
+  border-radius: 0;
+}
+.btn.primary { background: var(--ink); color: var(--paper); }
+.btn.primary:hover { opacity: .88; }
+.btn.primary:disabled { opacity: .4; cursor: default; }
+.btn.secondary { background: transparent; color: var(--ink); }
+.btn.secondary:hover { background: var(--soft); }
+.btn.quiet {
+  background: transparent;
+  color: var(--muted);
+  border-color: transparent;
+  padding-inline: 4px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.stat { padding: 14px 4px 12px; display: flex; flex-direction: column; gap: 2px; }
+.stat + .stat { border-left: 1px solid var(--rule); padding-left: 14px; }
+.stat .n { font-family: var(--display); font-size: 30px; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.stat .l { font-size: 13px; color: var(--muted); }
+@media (max-width: 460px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .stat:nth-child(3) { border-left: 0; padding-left: 4px; }
+  .stat:nth-child(n+3) { border-top: 1px solid var(--rule); }
+}
+
+.meter { display: inline-flex; gap: 3px; vertical-align: middle; }
+.meter i { width: 13px; height: 5px; background: var(--rule); }
+.meter i.on { background: var(--ink); }
+
+.bank { list-style: none; margin: 0; padding: 0; }
+.bank li { border-bottom: 1px solid var(--rule); }
+.entry {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px 16px;
+  text-align: left;
+  background: transparent;
+  color: inherit;
+  border: 0;
+  font: inherit;
+  padding: 13px 0;
+  cursor: pointer;
+}
+.entry .head { font-family: var(--display); font-size: 21px; }
+.entry .pos { font-family: var(--body); font-style: italic; color: var(--muted); font-size: 15px; margin-left: 6px; }
+.entry .lvl { text-align: right; font-size: 13px; color: var(--muted); display: flex; flex-direction: column; align-items: flex-end; gap: 4px; padding-top: 6px; }
+.entry .def { grid-column: 1 / -1; color: var(--muted); font-size: 16px; }
+.entry .missed { color: var(--wrong); }
+.detail { padding: 0 0 16px; display: flex; flex-direction: column; gap: 10px; font-size: 16px; }
+.detail .ctx { display: flex; flex-direction: column; gap: 1px; }
+.detail .tally { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.qhead { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.bar { height: 2px; background: var(--rule); margin: 10px 0 28px; }
+.bar i { display: block; height: 100%; background: var(--ink); transition: width .3s ease; }
+.prompt {
+  font-family: var(--display);
+  font-size: clamp(22px, 5vw, 27px);
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+.prompt.headword { font-size: clamp(34px, 8vw, 44px); line-height: 1.1; }
+.sub { color: var(--muted); font-size: 16px; margin-top: 8px; }
+.blank {
+  display: inline-block;
+  min-width: 4.6em;
+  border-bottom: 2px solid var(--ink);
+  line-height: 1.1;
+  text-align: center;
+}
+.blank.filled { min-width: 0; border-bottom-width: 1px; padding-inline: 2px; font-weight: 700; }
+.weak { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 5px; }
+
+.options { display: flex; flex-direction: column; gap: 8px; margin-top: 24px; }
+.option {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  width: 100%;
+  text-align: left;
+  padding: 12px 16px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+.option:hover:not(:disabled) { border-color: var(--ink); }
+.option:disabled { cursor: default; }
+.option .k { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; min-width: 1ch; }
+.option.word { font-family: var(--display); font-size: 19px; }
+.option.right { border-color: var(--right); background: var(--right-bg); }
+.option.wrong { border-color: var(--wrong); background: var(--wrong-bg); }
+.option.dim { opacity: .55; }
+
+.typed { display: flex; flex-direction: column; gap: 10px; margin-top: 24px; }
+.typed .line { display: flex; gap: 8px; }
+.typed input, .typed textarea {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--display);
+  font-size: 20px;
+  padding: 11px 14px;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--ink);
+  width: 100%;
+}
+.typed textarea { font-family: var(--body); font-size: 18px; line-height: 1.45; resize: vertical; }
+.typed .right { border-color: var(--right); background: var(--right-bg); }
+.typed .wrong { border-color: var(--wrong); background: var(--wrong-bg); }
+.hint { font-size: 15px; color: var(--muted); font-variant-numeric: tabular-nums; letter-spacing: .04em; }
+
+.slots { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 24px; }
+.slot {
+  width: 30px;
+  height: 40px;
+  border-bottom: 2px solid var(--ink);
+  font-family: var(--display);
+  font-size: 24px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 2px;
+}
+.slots.right .slot { border-color: var(--right); color: var(--right); }
+.slots.wrong .slot { border-color: var(--wrong); color: var(--wrong); }
+.tiles { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.tile {
+  width: 44px;
+  height: 46px;
+  font-family: var(--display);
+  font-size: 22px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+}
+.tile:disabled { opacity: .2; cursor: default; }
+
+.match { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 8px 10px; margin-top: 24px; }
+.match .col { display: flex; flex-direction: column; gap: 8px; }
+.pair {
+  text-align: left;
+  padding: 10px 12px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 15px;
+  line-height: 1.35;
+  cursor: pointer;
+  min-height: 52px;
+}
+.pair.w { font-family: var(--display); font-size: 17px; }
+.pair:hover:not(:disabled) { border-color: var(--ink); }
+.pair.sel { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.pair.done { border-color: var(--right); background: var(--right-bg); color: var(--right); cursor: default; }
+.pair.flash { border-color: var(--wrong); background: var(--wrong-bg); }
+
+.feedback {
+  margin-top: 26px;
+  border-top: 1px solid var(--ink);
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: rise .25s ease;
+}
+.verdict { font-weight: 600; }
+.verdict.right { color: var(--right); }
+.verdict.wrong { color: var(--wrong); }
+.feedback .hw { font-family: var(--display); font-size: 21px; }
+.feedback .actions { margin-top: 8px; }
+@keyframes rise { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+.score { font-family: var(--display); font-size: clamp(44px, 11vw, 60px); line-height: 1; font-variant-numeric: tabular-nums; }
+.changes { list-style: none; margin: 0; padding: 0; }
+.changes li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 12px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.changes .head { font-family: var(--display); font-size: 19px; }
+.changes .move { font-size: 14px; color: var(--muted); text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.changes .up { color: var(--right); }
+.changes .down { color: var(--wrong); }
+
+@media (prefers-reduced-motion: reduce) {
+  .feedback { animation: none; }
+  .bar i { transition: none; }
+}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">Lexicon</div>
+    <div class="status" id="status"></div>
+  </header>
+  <main id="app" aria-live="polite"></main>
+</div>
+
+<script>
+// The first email goes out on START_DATE. Every day after adds one word, except Saturdays (weekly quiz day).
+const START_DATE = "2026-10-26";
+// WORDS:BEGIN
+const WORDS = [
+  {
+    "word": "contingent",
+    "level": 4,
+    "pronunciation": "kun-TIN-jent",
+    "part_of_speech": "adjective",
+    "category": "Analyzing a problem",
+    "definition": "depending on something else happening",
+    "hook": "From Latin contingere, \"to touch.\" A contingent outcome is touching another event and can't happen without it.",
+    "examples": {
+      "interview": "Our recommendation was contingent on the client hitting Q3 targets, so we modeled two scenarios.",
+      "finance": "The acquisition is contingent on regulatory approval.",
+      "everyday": "Whether I take the offer is contingent on the start date."
+    },
+    "instead_of": "it depends on",
+    "weak": {
+      "sentence": "Whether the deal closes kind of depends on the financing.",
+      "phrase": "kind of depends on"
+    }
+  },
+  {
+    "word": "pragmatic",
+    "level": 3.5,
+    "pronunciation": "prag-MAT-ik",
+    "part_of_speech": "adjective",
+    "category": "Talking about yourself",
+    "definition": "focused on what works in practice rather than in theory",
+    "hook": "Shares a root with \"practice\": pragmatic people care about what actually works.",
+    "examples": {
+      "interview": "I took a pragmatic approach and prioritized the fixes with the biggest impact.",
+      "finance": "A pragmatic investor cares more about cash flow than a perfect narrative.",
+      "everyday": "We were pragmatic and picked the restaurant closest to everyone."
+    },
+    "instead_of": "practical",
+    "weak": {
+      "sentence": "I took a practical approach and fixed the biggest issues first.",
+      "phrase": "practical"
+    }
+  },
+  {
+    "word": "mitigate",
+    "level": 3.5,
+    "pronunciation": "MIT-ih-gayt",
+    "part_of_speech": "verb",
+    "category": "Strong verbs",
+    "definition": "to make something less severe without fully removing it",
+    "hook": "Sounds like \"mitt\": you put on a mitt to soften the impact, not stop the ball.",
+    "examples": {
+      "interview": "I mitigated the scheduling risk by building a buffer into every deadline.",
+      "finance": "We diversified the portfolio to mitigate concentration risk.",
+      "everyday": "Leaving early mitigates the traffic, but doesn't avoid it."
+    },
+    "instead_of": "make smaller",
+    "weak": {
+      "sentence": "We spread out our positions to make the risk smaller.",
+      "phrase": "make the risk smaller"
+    }
+  },
+  {
+    "word": "caveat",
+    "level": 4,
+    "pronunciation": "KAV-ee-ot",
+    "part_of_speech": "noun",
+    "category": "Hedging and nuance",
+    "definition": "a warning or condition attached to a statement",
+    "hook": "Latin for \"let him beware,\" as in caveat emptor, \"buyer beware.\"",
+    "examples": {
+      "interview": "I'd recommend the deal, with one caveat: the data only covers two years.",
+      "finance": "The analyst's upgrade came with the caveat that rates stay flat.",
+      "everyday": "The apartment is great, with the caveat that there's no parking."
+    },
+    "instead_of": "but one thing is",
+    "weak": {
+      "sentence": "I'd recommend the deal, but one thing is the data only covers two years.",
+      "phrase": "but one thing is"
+    }
+  },
+  {
+    "word": "synthesize",
+    "level": 3.5,
+    "pronunciation": "SIN-thuh-size",
+    "part_of_speech": "verb",
+    "category": "Strong verbs",
+    "definition": "to combine information from several sources into one clear view",
+    "hook": "Think of a synthesizer: many sounds combined into one track.",
+    "examples": {
+      "interview": "I synthesized research from four teammates into a single investment memo.",
+      "finance": "The pitch book synthesizes the comps, the DCF, and the precedent deals.",
+      "everyday": "She synthesized everyone's ideas into one trip plan."
+    },
+    "instead_of": "put together",
+    "weak": {
+      "sentence": "I put together everyone's research into one memo.",
+      "phrase": "put together"
+    }
+  },
+  {
+    "word": "volatile",
+    "level": 3,
+    "pronunciation": "VOL-uh-tul",
+    "part_of_speech": "adjective",
+    "category": "Markets and trends",
+    "definition": "likely to change sharply and unpredictably",
+    "hook": "Related to \"volley\": like a ball flying back and forth.",
+    "examples": {
+      "interview": "Oil prices were volatile that summer, so we stress-tested every assumption.",
+      "finance": "Small-cap tech stocks tend to be more volatile than utilities.",
+      "everyday": "The weather's been volatile, so bring a jacket."
+    },
+    "instead_of": "all over the place",
+    "weak": {
+      "sentence": "Oil prices were all over the place that summer.",
+      "phrase": "all over the place"
+    }
+  },
+  {
+    "word": "spearhead",
+    "level": 3.5,
+    "pronunciation": "SPEER-hed",
+    "part_of_speech": "verb",
+    "category": "Strong verbs",
+    "definition": "to lead an effort from the front",
+    "hook": "The spearhead is the tip of the spear, the first part to strike.",
+    "examples": {
+      "interview": "I spearheaded our club's first stock pitch competition.",
+      "finance": "She spearheaded the firm's expansion into private credit.",
+      "everyday": "He spearheaded planning for the team's end-of-season trip."
+    },
+    "instead_of": "was in charge of",
+    "weak": {
+      "sentence": "I was in charge of starting our club's first pitch competition.",
+      "phrase": "was in charge of starting"
+    }
+  },
+  {
+    "word": "candid",
+    "level": 3.5,
+    "pronunciation": "KAN-did",
+    "part_of_speech": "adjective",
+    "category": "Teamwork and conflict",
+    "definition": "honest and direct, even when it's uncomfortable",
+    "hook": "A candid photo catches people as they really are.",
+    "examples": {
+      "interview": "I had a candid conversation with a teammate who was missing deadlines.",
+      "finance": "Investors appreciated management's candid view of the weak quarter.",
+      "everyday": "To be candid, I liked the first option better."
+    },
+    "instead_of": "honest",
+    "weak": {
+      "sentence": "I had a really honest talk with a teammate who kept missing deadlines.",
+      "phrase": "really honest"
+    }
+  },
+  {
+    "word": "headwind",
+    "level": 3.5,
+    "pronunciation": "HED-wind",
+    "part_of_speech": "noun",
+    "category": "Markets and trends",
+    "definition": "a factor that slows progress or hurts performance",
+    "hook": "Wind blowing in your face while you run: you can still move, just slower.",
+    "examples": {
+      "interview": "Higher rates are a headwind for the sector, but the company's balance sheet is strong.",
+      "finance": "Management cited currency headwinds for the revenue miss.",
+      "everyday": "Midterms were a real headwind for my workout routine."
+    },
+    "instead_of": "problem",
+    "weak": {
+      "sentence": "Higher rates are a problem for the whole sector.",
+      "phrase": "a problem"
+    }
+  },
+  {
+    "word": "prudent",
+    "level": 3.5,
+    "pronunciation": "PROO-dent",
+    "part_of_speech": "adjective",
+    "category": "Giving your opinion",
+    "definition": "careful and sensible about future risk",
+    "hook": "Shortened from \"provident\": seeing ahead.",
+    "examples": {
+      "interview": "Given the uncertainty, I thought it was prudent to keep more cash on hand.",
+      "finance": "It would be prudent to hedge the currency exposure.",
+      "everyday": "It's prudent to book flights early for Thanksgiving."
+    },
+    "instead_of": "smart",
+    "weak": {
+      "sentence": "Given the uncertainty, it seemed smart to keep more cash on hand.",
+      "phrase": "smart"
+    }
+  },
+  {
+    "word": "that said",
+    "level": 2.5,
+    "pronunciation": "",
+    "part_of_speech": "phrase",
+    "category": "Phrases and transitions",
+    "definition": "used to add a counterpoint after making a claim",
+    "hook": "You've said one thing; now you're weighing it against another.",
+    "examples": {
+      "interview": "The returns were strong. That said, most of it came from one position.",
+      "finance": "Valuation looks stretched. That said, growth has consistently beaten estimates.",
+      "everyday": "It's expensive. That said, it'll last ten years."
+    },
+    "instead_of": "but",
+    "weak": {
+      "sentence": "The returns were strong. But, like, most of it came from one position.",
+      "phrase": "But, like,"
+    }
+  },
+  {
+    "word": "the key trade-off",
+    "level": 3,
+    "pronunciation": "",
+    "part_of_speech": "phrase",
+    "category": "Phrases and transitions",
+    "definition": "used to frame a decision around what you gain versus what you give up",
+    "hook": "Every decision trades one thing for another. Naming it shows structured thinking.",
+    "examples": {
+      "interview": "The key trade-off was speed versus accuracy, and we chose accuracy because the client was presenting to their board.",
+      "finance": "The key trade-off with leverage is higher returns versus higher risk of distress.",
+      "everyday": "The key trade-off with living off campus is more space versus a longer walk."
+    },
+    "instead_of": "the pros and cons",
+    "weak": {
+      "sentence": "The pros and cons were basically speed versus accuracy.",
+      "phrase": "The pros and cons were basically"
+    }
+  },
+  {
+    "word": "nuanced",
+    "level": 4,
+    "pronunciation": "NOO-ahnst",
+    "part_of_speech": "adjective",
+    "category": "Hedging and nuance",
+    "definition": "showing subtle differences instead of a simple yes or no",
+    "hook": "From French nuance, \"shade of color\": you see shades instead of black and white.",
+    "examples": {
+      "interview": "The answer was more nuanced: the strategy worked in two regions but not the third.",
+      "finance": "A nuanced read of the guidance suggests demand is slowing, not collapsing.",
+      "everyday": "His take on the election was more nuanced than I expected."
+    },
+    "instead_of": "complicated",
+    "weak": {
+      "sentence": "The answer was more complicated than just yes or no.",
+      "phrase": "complicated"
+    }
+  },
+  {
+    "word": "bolster",
+    "level": 4.5,
+    "pronunciation": "BOHL-ster",
+    "part_of_speech": "verb",
+    "category": "Strong verbs",
+    "definition": "to strengthen or support something",
+    "hook": "A bolster is a long, firm pillow that props you up.",
+    "examples": {
+      "interview": "I bolstered my pitch with three comparable deals.",
+      "finance": "The buyback bolstered investor confidence after a weak quarter.",
+      "everyday": "A good night's sleep bolstered my confidence before the exam."
+    },
+    "instead_of": "make stronger",
+    "weak": {
+      "sentence": "I used three comparable deals to make my pitch stronger.",
+      "phrase": "make my pitch stronger"
+    }
+  },
+  {
+    "word": "salient",
+    "level": 5,
+    "pronunciation": "SAY-lee-ent",
+    "part_of_speech": "adjective",
+    "category": "Analyzing a problem",
+    "definition": "most noticeable or important",
+    "hook": "From Latin salire, \"to leap\": a salient point leaps out at you.",
+    "examples": {
+      "interview": "The salient point is that margins expanded even as revenue fell.",
+      "finance": "The salient risk in this deal is customer concentration.",
+      "everyday": "The salient detail in the email was the new deadline."
+    },
+    "instead_of": "main",
+    "weak": {
+      "sentence": "The main thing is that margins grew even as revenue fell.",
+      "phrase": "main thing"
+    }
+  },
+  {
+    "word": "exacerbate",
+    "level": 5,
+    "pronunciation": "ig-ZASS-er-bayt",
+    "part_of_speech": "verb",
+    "category": "Strong verbs",
+    "definition": "to make a bad situation worse",
+    "hook": "Shares a root with \"acerbic,\" meaning harsh or bitter: it adds bitterness to a problem.",
+    "examples": {
+      "interview": "Rushing the model would have exacerbated the errors, so I rebuilt the inputs first.",
+      "finance": "Rising rates exacerbated the pressure on highly leveraged companies.",
+      "everyday": "Skipping sleep only exacerbates the stress."
+    },
+    "instead_of": "make worse",
+    "weak": {
+      "sentence": "Rising rates made things a lot worse for leveraged companies.",
+      "phrase": "made things a lot worse"
+    }
+  },
+  {
+    "word": "corroborate",
+    "level": 5,
+    "pronunciation": "kuh-ROB-uh-rayt",
+    "part_of_speech": "verb",
+    "category": "Analyzing a problem",
+    "definition": "to confirm a claim with additional evidence",
+    "hook": "From Latin robur, \"strength,\" as in robust: you add strength to a claim.",
+    "examples": {
+      "interview": "I corroborated management's numbers with channel checks before we built the model.",
+      "finance": "Credit card data corroborated the company's strong holiday sales.",
+      "everyday": "Two friends corroborated her version of the story."
+    },
+    "instead_of": "back up",
+    "weak": {
+      "sentence": "I backed up management's numbers with channel checks.",
+      "phrase": "backed up"
+    }
+  },
+  {
+    "word": "inflection point",
+    "level": 5,
+    "pronunciation": "in-FLEK-shun point",
+    "part_of_speech": "phrase",
+    "category": "Markets and trends",
+    "definition": "the moment a trend changes direction",
+    "hook": "From calculus: the point where a curve switches from bending one way to the other.",
+    "examples": {
+      "interview": "Joining the research team was an inflection point in how I think about markets.",
+      "finance": "Analysts see this quarter as an inflection point for margins.",
+      "everyday": "Moving away for college was an inflection point for me."
+    },
+    "instead_of": "turning point",
+    "weak": {
+      "sentence": "This quarter could be a big turning point for margins.",
+      "phrase": "big turning point"
+    }
+  },
+  {
+    "word": "tenuous",
+    "level": 5.5,
+    "pronunciation": "TEN-yoo-us",
+    "part_of_speech": "adjective",
+    "category": "Giving your opinion",
+    "definition": "weak or thin, and easily broken",
+    "hook": "From Latin tenuis, \"thin\": a tenuous link is hanging by a thread.",
+    "examples": {
+      "interview": "The link between the campaign and the sales bump was tenuous, so I didn't lean on it.",
+      "finance": "The bull case rests on a tenuous assumption about pricing power.",
+      "everyday": "Our plan to meet up this weekend is tenuous at best."
+    },
+    "instead_of": "weak",
+    "weak": {
+      "sentence": "The connection between the ad and the sales bump was pretty weak.",
+      "phrase": "pretty weak"
+    }
+  },
+  {
+    "word": "cogent",
+    "level": 6,
+    "pronunciation": "KOH-jent",
+    "part_of_speech": "adjective",
+    "category": "Giving your opinion",
+    "definition": "clear, logical, and convincing",
+    "hook": "Related to \"cogitate,\" to think hard: a cogent argument is well thought out.",
+    "examples": {
+      "interview": "She made a cogent case for exiting the position before earnings.",
+      "finance": "The memo laid out a cogent thesis in two pages.",
+      "everyday": "That's a cogent argument for leaving an hour earlier."
+    },
+    "instead_of": "convincing",
+    "weak": {
+      "sentence": "She made a really convincing case for selling before earnings.",
+      "phrase": "really convincing"
+    }
+  },
+  {
+    "word": "circumspect",
+    "level": 6,
+    "pronunciation": "SUR-kum-spekt",
+    "part_of_speech": "adjective",
+    "category": "Talking about yourself",
+    "definition": "careful to consider risks before acting or speaking",
+    "hook": "Latin for \"looking around\": you look around before you move.",
+    "examples": {
+      "interview": "I was circumspect about sharing projections until the numbers were final.",
+      "finance": "Lenders have become more circumspect about commercial real estate.",
+      "everyday": "Be circumspect about what you post online during recruiting."
+    },
+    "instead_of": "careful",
+    "weak": {
+      "sentence": "Lenders have gotten a lot more careful about commercial real estate.",
+      "phrase": "a lot more careful"
+    }
+  },
+  {
+    "word": "commensurate",
+    "level": 6,
+    "pronunciation": "kuh-MEN-sur-it",
+    "part_of_speech": "adjective",
+    "category": "Markets and trends",
+    "definition": "in proportion to something else",
+    "hook": "\"Co\" plus \"measure\": two things measured together.",
+    "examples": {
+      "interview": "I spent time on each issue commensurate with its impact on the deal.",
+      "finance": "Investors demand returns commensurate with the risk they take.",
+      "everyday": "The price was commensurate with the quality."
+    },
+    "instead_of": "in line with",
+    "weak": {
+      "sentence": "Investors want returns that match up with the risk they take.",
+      "phrase": "that match up with"
+    }
+  },
+  {
+    "word": "underscore",
+    "level": 4,
+    "pronunciation": "UN-der-skor",
+    "part_of_speech": "verb",
+    "category": "Strong verbs",
+    "definition": "to emphasize or show how important something is",
+    "hook": "Literally drawing a line under words so no one misses them.",
+    "examples": {
+      "interview": "That project underscored how much I enjoy working with real financial data.",
+      "finance": "The weak jobs report underscores the case for a rate cut.",
+      "everyday": "Missing the bus twice underscored that I need to leave earlier."
+    },
+    "instead_of": "show",
+    "weak": {
+      "sentence": "The weak jobs report really shows the case for a rate cut.",
+      "phrase": "really shows"
+    }
+  },
+  {
+    "word": "articulate",
+    "level": 4,
+    "pronunciation": "ar-TIK-yoo-layt",
+    "part_of_speech": "verb",
+    "category": "Talking about yourself",
+    "definition": "to express an idea clearly and precisely",
+    "hook": "From Latin articulus, \"small joint\": speech broken into clean, distinct parts.",
+    "examples": {
+      "interview": "I articulated the investment thesis in three points so the panel could follow it quickly.",
+      "finance": "The CEO struggled to articulate a clear growth strategy on the call.",
+      "everyday": "It took me a while to articulate why I didn't like the plan."
+    },
+    "instead_of": "explain",
+    "weak": {
+      "sentence": "I explained the thesis in a clear way using three points.",
+      "phrase": "explained the thesis in a clear way"
+    }
+  },
+  {
+    "word": "catalyst",
+    "level": 4,
+    "pronunciation": "KAT-uh-list",
+    "part_of_speech": "noun",
+    "category": "Markets and trends",
+    "definition": "an event or factor that triggers change",
+    "hook": "In chemistry, a catalyst speeds up a reaction without being used up.",
+    "examples": {
+      "interview": "The near-term catalyst for the stock is the FDA decision in March.",
+      "finance": "Analysts see the spin-off as a catalyst for re-rating the shares.",
+      "everyday": "Moving to a new dorm was the catalyst for fixing my sleep schedule."
+    },
+    "instead_of": "reason",
+    "weak": {
+      "sentence": "The big reason the stock could move is the FDA decision in March.",
+      "phrase": "big reason the stock could move"
+    }
+  },
+  {
+    "word": "tangible",
+    "level": 4,
+    "pronunciation": "TAN-juh-bul",
+    "part_of_speech": "adjective",
+    "category": "Talking about yourself",
+    "definition": "real and measurable, not just theoretical",
+    "hook": "From Latin tangere, \"to touch\": something you can put your hands on.",
+    "examples": {
+      "interview": "I wanted a role where my work had a tangible impact, so I joined the club's investment fund.",
+      "finance": "The company trades below its tangible book value.",
+      "everyday": "Studying with a group gave me tangible results on the midterm."
+    },
+    "instead_of": "real",
+    "weak": {
+      "sentence": "I wanted my work to have a real, actual impact.",
+      "phrase": "real, actual"
+    }
+  },
+  {
+    "word": "plausible",
+    "level": 4,
+    "pronunciation": "PLAW-zuh-bul",
+    "part_of_speech": "adjective",
+    "category": "Hedging and nuance",
+    "definition": "reasonable and possibly true",
+    "hook": "From Latin plaudere, \"to applaud\": once meant worth applauding, now worth believing.",
+    "examples": {
+      "interview": "A plausible explanation for the margin drop is higher freight costs.",
+      "finance": "A soft landing is still a plausible scenario for next year.",
+      "everyday": "His excuse was plausible, so I let it go."
+    },
+    "instead_of": "possible",
+    "weak": {
+      "sentence": "One possible kind of explanation for the margin drop is freight costs.",
+      "phrase": "possible kind of"
+    }
+  },
+  {
+    "word": "viable",
+    "level": 4,
+    "pronunciation": "VY-uh-bul",
+    "part_of_speech": "adjective",
+    "category": "Analyzing a problem",
+    "definition": "able to work or succeed",
+    "hook": "From French vie, \"life\": a viable plan can survive on its own.",
+    "examples": {
+      "interview": "We tested three pricing models, and only one was viable at our volume.",
+      "finance": "Without new funding, the business may not be viable past next year.",
+      "everyday": "Biking to campus isn't viable when it rains."
+    },
+    "instead_of": "workable",
+    "weak": {
+      "sentence": "Only one pricing model would actually work out at our volume.",
+      "phrase": "would actually work out"
+    }
+  },
+  {
+    "word": "pivotal",
+    "level": 4,
+    "pronunciation": "PIV-uh-tul",
+    "part_of_speech": "adjective",
+    "category": "Talking about yourself",
+    "definition": "of central importance; the point everything turns on",
+    "hook": "A pivot is the single point a whole door swings on.",
+    "examples": {
+      "interview": "My internship was pivotal in deciding I wanted to work in banking.",
+      "finance": "The Fed's next meeting is pivotal for the bond market.",
+      "everyday": "That conversation was pivotal for our friendship."
+    },
+    "instead_of": "really important",
+    "weak": {
+      "sentence": "My internship was really important in deciding I wanted to do banking.",
+      "phrase": "really important"
+    }
+  },
+  {
+    "word": "trajectory",
+    "level": 4,
+    "pronunciation": "truh-JEK-tuh-ree",
+    "part_of_speech": "noun",
+    "category": "Markets and trends",
+    "definition": "the path or direction something is moving over time",
+    "hook": "From physics: the path a thrown object follows through the air.",
+    "examples": {
+      "interview": "I was drawn to the firm because of its growth trajectory in middle-market deals.",
+      "finance": "Revenue is on a steady upward trajectory despite higher costs.",
+      "everyday": "My grades are finally on the right trajectory."
+    },
+    "instead_of": "direction",
+    "weak": {
+      "sentence": "Revenue is going in a good direction despite higher costs.",
+      "phrase": "going in a good direction"
+    }
+  },
+  {
+    "word": "on balance",
+    "level": 4,
+    "pronunciation": "",
+    "part_of_speech": "phrase",
+    "category": "Phrases and transitions",
+    "definition": "after weighing everything, used to give your overall view",
+    "hook": "Picture a scale: you've put both sides on it and are reading where it settles.",
+    "examples": {
+      "interview": "On balance, I'd buy the stock, because the upside outweighs the regulatory risk.",
+      "finance": "On balance, the quarter was better than the market expected.",
+      "everyday": "On balance, the trip was worth the cost."
+    },
+    "instead_of": "overall",
+    "weak": {
+      "sentence": "Overall I guess I'd buy the stock, since the upside is bigger.",
+      "phrase": "Overall I guess"
+    }
+  },
+  {
+    "word": "to put that in context",
+    "level": 3.5,
+    "pronunciation": "",
+    "part_of_speech": "phrase",
+    "category": "Phrases and transitions",
+    "definition": "used to compare a number or fact to something familiar so it means more",
+    "hook": "A number alone means little; context gives it a frame.",
+    "examples": {
+      "interview": "We cut costs by $40,000. To put that in context, that was a fifth of the club's annual budget.",
+      "finance": "The fine was $2 billion. To put that in context, it's about two weeks of the bank's profit.",
+      "everyday": "I ran 15 miles this week. To put that in context, I usually run five."
+    },
+    "instead_of": "which is a lot",
+    "weak": {
+      "sentence": "We cut costs by $40,000, which is a lot for a club.",
+      "phrase": "which is a lot"
+    }
+  },
+  {
+    "word": "ambiguous",
+    "level": 4,
+    "pronunciation": "am-BIG-yoo-us",
+    "part_of_speech": "adjective",
+    "category": "Analyzing a problem",
+    "definition": "open to more than one meaning; unclear",
+    "hook": "From Latin ambi-, \"both ways\": it can be read two ways at once.",
+    "examples": {
+      "interview": "The assignment was ambiguous, so I asked two clarifying questions before starting.",
+      "finance": "Management's guidance was ambiguous about second-half margins.",
+      "everyday": "Her text was ambiguous, so I called her."
+    },
+    "instead_of": "unclear",
+    "weak": {
+      "sentence": "The assignment was kind of unclear, so I asked questions first.",
+      "phrase": "kind of unclear"
+    }
+  },
+  {
+    "word": "resilient",
+    "level": 4,
+    "pronunciation": "rih-ZIL-yent",
+    "part_of_speech": "adjective",
+    "category": "Markets and trends",
+    "definition": "able to recover quickly from setbacks",
+    "hook": "From Latin resilire, \"to spring back,\" like a ball bouncing off the floor.",
+    "examples": {
+      "interview": "The team stayed resilient after we lost our biggest sponsor, and we replaced the funding in a month.",
+      "finance": "Consumer spending has been more resilient than economists expected.",
+      "everyday": "Kids are more resilient than we give them credit for."
+    },
+    "instead_of": "tough",
+    "weak": {
+      "sentence": "Consumer spending has held up and been pretty tough.",
+      "phrase": "held up and been pretty tough"
+    }
+  },
+  {
+    "word": "discern",
+    "level": 4.5,
+    "pronunciation": "dih-SURN",
+    "part_of_speech": "verb",
+    "category": "Analyzing a problem",
+    "definition": "to notice or understand something that isn't obvious",
+    "hook": "From Latin discernere, \"to separate\": picking out one thing from the noise.",
+    "examples": {
+      "interview": "From the customer data, I discerned that most churn came from one region.",
+      "finance": "It's hard to discern a clear trend from one quarter of results.",
+      "everyday": "I could barely discern what he was saying over the music."
+    },
+    "instead_of": "figure out",
+    "weak": {
+      "sentence": "From the data, I figured out that most churn came from one region.",
+      "phrase": "figured out"
+    }
+  },
+  {
+    "word": "scrutinize",
+    "level": 4.5,
+    "pronunciation": "SKROO-tuh-nize",
+    "part_of_speech": "verb",
+    "category": "Strong verbs",
+    "definition": "to examine something closely and carefully",
+    "hook": "Often traced to Latin scruta, \"rags\": searching through every scrap.",
+    "examples": {
+      "interview": "I scrutinized every assumption in the model before we sent it to the client.",
+      "finance": "Regulators are scrutinizing the merger for antitrust issues.",
+      "everyday": "She scrutinized the lease before signing it."
+    },
+    "instead_of": "look closely at",
+    "weak": {
+      "sentence": "I looked really closely at every assumption in the model.",
+      "phrase": "looked really closely at"
+    }
+  },
+  {
+    "word": "granular",
+    "level": 4.5,
+    "pronunciation": "GRAN-yoo-ler",
+    "part_of_speech": "adjective",
+    "category": "Analyzing a problem",
+    "definition": "very detailed, broken down into small parts",
+    "hook": "Like grains of sand: the picture is broken into its smallest pieces.",
+    "examples": {
+      "interview": "I built a more granular model that forecast revenue by store instead of by region.",
+      "finance": "Investors want more granular disclosure on the cloud segment.",
+      "everyday": "My budget got more granular once I tracked every coffee."
+    },
+    "instead_of": "detailed",
+    "weak": {
+      "sentence": "I built a much more detailed and broken-down model by store.",
+      "phrase": "much more detailed and broken-down"
+    }
+  },
+  {
+    "word": "holistic",
+    "level": 4.5,
+    "pronunciation": "hoh-LIS-tik",
+    "part_of_speech": "adjective",
+    "category": "Analyzing a problem",
+    "definition": "looking at the whole picture rather than separate parts",
+    "hook": "From Greek holos, \"whole.\"",
+    "examples": {
+      "interview": "I tried to take a holistic view of the deal, including culture fit, not just the numbers.",
+      "finance": "A holistic review of the portfolio showed too much exposure to one sector.",
+      "everyday": "The coach took a holistic approach to training, including sleep and diet."
+    },
+    "instead_of": "big-picture",
+    "weak": {
+      "sentence": "I tried to look at the whole thing overall, not just the numbers.",
+      "phrase": "look at the whole thing overall"
+    }
+  },
+  {
+    "word": "reconcile",
+    "level": 4.5,
+    "pronunciation": "REK-un-sile",
+    "part_of_speech": "verb",
+    "category": "Strong verbs",
+    "definition": "to make two things agree or fit together",
+    "hook": "Latin for \"bring together again.\" Accountants reconcile two sets of numbers until they match.",
+    "examples": {
+      "interview": "I reconciled two conflicting data sources before presenting the numbers.",
+      "finance": "Analysts struggled to reconcile the strong guidance with falling orders.",
+      "everyday": "I'm still trying to reconcile my budget with my spending."
+    },
+    "instead_of": "make match",
+    "weak": {
+      "sentence": "I made two conflicting data sources match up before presenting.",
+      "phrase": "made two conflicting data sources match up"
+    }
+  },
+  {
+    "word": "erode",
+    "level": 4.5,
+    "pronunciation": "ih-ROHD",
+    "part_of_speech": "verb",
+    "category": "Markets and trends",
+    "definition": "to wear away gradually",
+    "hook": "From Latin erodere, \"to gnaw away,\" like water slowly cutting through rock.",
+    "examples": {
+      "interview": "New competitors eroded the client's market share, so we looked at a price cut.",
+      "finance": "Inflation erodes the real value of fixed-income returns.",
+      "everyday": "Constant small delays eroded my trust in the app."
+    },
+    "instead_of": "slowly hurt",
+    "weak": {
+      "sentence": "New competitors slowly hurt the client's market share.",
+      "phrase": "slowly hurt"
+    }
+  },
+  {
+    "word": "adept",
+    "level": 4.5,
+    "pronunciation": "uh-DEPT",
+    "part_of_speech": "adjective",
+    "category": "Talking about yourself",
+    "definition": "very skilled at something",
+    "hook": "Alchemists who had mastered their secrets were called adepts.",
+    "examples": {
+      "interview": "I became adept at building three-statement models during my internship.",
+      "finance": "She's adept at structuring complicated debt deals.",
+      "everyday": "He's adept at calming people down."
+    },
+    "instead_of": "good at",
+    "weak": {
+      "sentence": "I got really good at building three-statement models.",
+      "phrase": "really good at"
+    }
+  },
+  {
+    "word": "meticulous",
+    "level": 4.5,
+    "pronunciation": "muh-TIK-yuh-lus",
+    "part_of_speech": "adjective",
+    "category": "Talking about yourself",
+    "definition": "extremely careful about details",
+    "hook": "From Latin meticulosus, \"fearful\": so careful it's as if you're afraid of a single mistake.",
+    "examples": {
+      "interview": "I'm meticulous about checking formulas, because one wrong cell can change a valuation.",
+      "finance": "The audit team was meticulous in reviewing revenue recognition.",
+      "everyday": "She keeps meticulous notes in every class."
+    },
+    "instead_of": "careful",
+    "weak": {
+      "sentence": "I'm super careful about checking formulas in models.",
+      "phrase": "super careful"
+    }
+  },
+  {
+    "word": "contend",
+    "level": 4.5,
+    "pronunciation": "kun-TEND",
+    "part_of_speech": "verb",
+    "category": "Giving your opinion",
+    "definition": "to argue or state that something is true",
+    "hook": "From Latin contendere, \"to strive\": you're putting your position into the contest.",
+    "examples": {
+      "interview": "I'd contend that the market is underpricing the company's international growth.",
+      "finance": "Bulls contend that the selloff was overdone.",
+      "everyday": "My roommate contends that pineapple belongs on pizza."
+    },
+    "instead_of": "think",
+    "weak": {
+      "sentence": "I kind of think the market is underpricing their growth.",
+      "phrase": "kind of think"
+    }
+  },
+  {
+    "word": "concede",
+    "level": 4.5,
+    "pronunciation": "kun-SEED",
+    "part_of_speech": "verb",
+    "category": "Disagreeing politely",
+    "definition": "to admit that something is true, often reluctantly",
+    "hook": "From Latin concedere, \"to step aside\": you yield ground on one point.",
+    "examples": {
+      "interview": "I'll concede that the valuation is high, but the growth justifies it.",
+      "finance": "Management conceded that the integration had taken longer than planned.",
+      "everyday": "I conceded that he was right about the shortcut."
+    },
+    "instead_of": "admit",
+    "weak": {
+      "sentence": "I'll admit that's true, the valuation is high, but growth justifies it.",
+      "phrase": "admit that's true,"
+    }
+  },
+  {
+    "word": "underpin",
+    "level": 5,
+    "pronunciation": "un-der-PIN",
+    "part_of_speech": "verb",
+    "category": "Analyzing a problem",
+    "definition": "to support something from beneath; to form its basis",
+    "hook": "In construction, underpinning is the support added beneath a wall's foundation.",
+    "examples": {
+      "interview": "Strong recurring revenue underpins my buy recommendation.",
+      "finance": "Low unemployment has underpinned consumer spending all year.",
+      "everyday": "Trust underpins every good team."
+    },
+    "instead_of": "is the base of",
+    "weak": {
+      "sentence": "Strong recurring revenue is the main base of my recommendation.",
+      "phrase": "is the main base of"
+    }
+  },
+  {
+    "word": "extrapolate",
+    "level": 5,
+    "pronunciation": "ik-STRAP-uh-layt",
+    "part_of_speech": "verb",
+    "category": "Analyzing a problem",
+    "definition": "to extend a known trend to predict something beyond it",
+    "hook": "From math: extending a line past your last data point. Its opposite, interpolate, fills in between points.",
+    "examples": {
+      "interview": "I was careful not to extrapolate too much from one strong quarter.",
+      "finance": "Analysts extrapolated recent growth and overestimated next year's earnings.",
+      "everyday": "Don't extrapolate from one bad date."
+    },
+    "instead_of": "assume it'll continue",
+    "weak": {
+      "sentence": "I didn't want to just assume it'll keep going from one strong quarter.",
+      "phrase": "just assume it'll keep going"
+    }
+  },
+  {
+    "word": "ramification",
+    "level": 5,
+    "pronunciation": "ram-uh-fuh-KAY-shun",
+    "part_of_speech": "noun",
+    "category": "Analyzing a problem",
+    "definition": "a consequence, often complicated or unwelcome",
+    "hook": "From Latin ramus, \"branch\": one decision branches into many results.",
+    "examples": {
+      "interview": "Before recommending the cut, I mapped out the ramifications for each department.",
+      "finance": "The ruling has ramifications for every company in the sector.",
+      "everyday": "I didn't think through the ramifications of moving off campus."
+    },
+    "instead_of": "effects",
+    "weak": {
+      "sentence": "I thought about all the effects and stuff for each department.",
+      "phrase": "effects and stuff"
+    }
+  },
+  {
+    "word": "impetus",
+    "level": 5,
+    "pronunciation": "IM-puh-tus",
+    "part_of_speech": "noun",
+    "category": "Talking about yourself",
+    "definition": "the force or reason that drives something to happen",
+    "hook": "Latin for \"attack\" or \"force\": the push that gets things moving.",
+    "examples": {
+      "interview": "Losing the case competition was the impetus for me to learn modeling properly.",
+      "finance": "Falling rates gave fresh impetus to the housing market.",
+      "everyday": "The deadline was the impetus I needed to start."
+    },
+    "instead_of": "what made me",
+    "weak": {
+      "sentence": "Losing the competition was what made me want to learn modeling.",
+      "phrase": "what made me want"
+    }
+  },
+  {
+    "word": "substantiate",
+    "level": 5,
+    "pronunciation": "sub-STAN-shee-ayt",
+    "part_of_speech": "verb",
+    "category": "Analyzing a problem",
+    "definition": "to prove a claim with evidence",
+    "hook": "To give a claim substance, so it isn't just words.",
+    "examples": {
+      "interview": "I substantiated the thesis with survey data from 200 customers.",
+      "finance": "The short seller's claims have not been substantiated.",
+      "everyday": "Can you substantiate that, or is it a rumor?"
+    },
+    "instead_of": "prove",
+    "weak": {
+      "sentence": "I proved the thesis was right using survey data.",
+      "phrase": "proved the thesis was right"
+    }
+  },
+  {
+    "word": "tenacious",
+    "level": 5,
+    "pronunciation": "tuh-NAY-shus",
+    "part_of_speech": "adjective",
+    "category": "Talking about yourself",
+    "definition": "determined and persistent; not giving up",
+    "hook": "From Latin tenere, \"to hold\": you keep your grip.",
+    "examples": {
+      "interview": "I was tenacious about finding a sponsor and reached out to forty firms before one said yes.",
+      "finance": "The fund is known for being tenacious in activist campaigns.",
+      "everyday": "He's a tenacious defender on the field."
+    },
+    "instead_of": "didn't give up",
+    "weak": {
+      "sentence": "I never gave up and kept trying to find a sponsor.",
+      "phrase": "never gave up and kept trying"
+    }
+  },
+  {
+    "word": "paramount",
+    "level": 5,
+    "pronunciation": "PAIR-uh-mount",
+    "part_of_speech": "adjective",
+    "category": "Giving your opinion",
+    "definition": "more important than anything else",
+    "hook": "From Old French par amont, \"above\": it sits above everything else.",
+    "examples": {
+      "interview": "In a client deliverable, accuracy is paramount, so I always do a second check.",
+      "finance": "For a bank, liquidity is paramount during a crisis.",
+      "everyday": "Safety is paramount on the climbing trip."
+    },
+    "instead_of": "the most important",
+    "weak": {
+      "sentence": "In a client deliverable, accuracy is like the most important thing.",
+      "phrase": "like the most important thing"
+    }
+  },
+  {
+    "word": "preempt",
+    "level": 5,
+    "pronunciation": "pree-EMPT",
+    "part_of_speech": "verb",
+    "category": "Strong verbs",
+    "definition": "to act before something happens, to prevent it or get ahead of it",
+    "hook": "Originally \"to buy before others could\": you claim the move first.",
+    "examples": {
+      "interview": "I preempted the client's questions by adding a sensitivity table to the deck.",
+      "finance": "The company cut guidance to preempt a disappointing quarter.",
+      "everyday": "I preempted the argument by apologizing first."
+    },
+    "instead_of": "get ahead of",
+    "weak": {
+      "sentence": "I tried to get ahead of the client's questions by adding a sensitivity table.",
+      "phrase": "tried to get ahead of"
+    }
+  },
+  {
+    "word": "headroom",
+    "level": 5,
+    "pronunciation": "HED-room",
+    "part_of_speech": "noun",
+    "category": "Markets and trends",
+    "definition": "room to grow or rise before hitting a limit",
+    "hook": "The space above your head before you hit the ceiling.",
+    "examples": {
+      "interview": "The company has pricing headroom, since it charges less than every competitor.",
+      "finance": "The bank has plenty of headroom above its capital requirements.",
+      "everyday": "There's still some headroom in my budget this month."
+    },
+    "instead_of": "room to grow",
+    "weak": {
+      "sentence": "The company still has a lot of room to raise prices.",
+      "phrase": "a lot of room to raise prices"
+    }
+  },
+  {
+    "word": "push back",
+    "level": 4,
+    "pronunciation": "",
+    "part_of_speech": "phrase",
+    "category": "Disagreeing politely",
+    "definition": "to politely disagree or resist an idea",
+    "hook": "A gentle push against an idea, not a shove.",
+    "examples": {
+      "interview": "I'd push back slightly on that, because the growth assumption looks aggressive.",
+      "finance": "Several large shareholders plan to push back on the proposed pay package.",
+      "everyday": "I had to push back when my group wanted to start the project the night before."
+    },
+    "instead_of": "I don't agree",
+    "weak": {
+      "sentence": "I don't really agree with that, the growth assumption looks aggressive.",
+      "phrase": "I don't really agree with that"
+    }
+  },
+  {
+    "word": "albeit",
+    "level": 5,
+    "pronunciation": "awl-BEE-it",
+    "part_of_speech": "conjunction",
+    "category": "Hedging and nuance",
+    "definition": "although; even though",
+    "hook": "Squeezed together from \"all be it,\" meaning \"although it be.\"",
+    "examples": {
+      "interview": "The strategy worked, albeit more slowly than we planned.",
+      "finance": "Margins improved, albeit from a low base.",
+      "everyday": "We made the flight, albeit with two minutes to spare."
+    },
+    "instead_of": "but",
+    "weak": {
+      "sentence": "The strategy worked, but it was slower than we planned.",
+      "phrase": "but it was"
+    }
+  },
+  {
+    "word": "galvanize",
+    "level": 5.5,
+    "pronunciation": "GAL-vuh-nize",
+    "part_of_speech": "verb",
+    "category": "Teamwork and conflict",
+    "definition": "to shock or inspire people into taking action",
+    "hook": "Named after Luigi Galvani, whose experiments made frog legs twitch with electricity.",
+    "examples": {
+      "interview": "Losing our first pitch galvanized the team, and we won the next two.",
+      "finance": "The CEO's plan galvanized shareholders to vote for the deal.",
+      "everyday": "The flood galvanized the town to raise money for repairs."
+    },
+    "instead_of": "got everyone going",
+    "weak": {
+      "sentence": "Losing our first pitch really got everyone going.",
+      "phrase": "really got everyone going"
+    }
+  },
+  {
+    "word": "juxtapose",
+    "level": 5.5,
+    "pronunciation": "JUK-stuh-pohz",
+    "part_of_speech": "verb",
+    "category": "Analyzing a problem",
+    "definition": "to place two things side by side to compare them",
+    "hook": "From Latin juxta, \"next to,\" plus \"pose\": to place next to.",
+    "examples": {
+      "interview": "I juxtaposed the two companies' margins to show why one deserved a higher multiple.",
+      "finance": "The report juxtaposes record profits with falling wages.",
+      "everyday": "The photo juxtaposes old buildings with new skyscrapers."
+    },
+    "instead_of": "put next to each other",
+    "weak": {
+      "sentence": "I put the two companies' margins next to each other to compare.",
+      "phrase": "put the two companies' margins next to each other"
+    }
+  },
+  {
+    "word": "conducive",
+    "level": 5.5,
+    "pronunciation": "kun-DOO-siv",
+    "part_of_speech": "adjective",
+    "category": "Analyzing a problem",
+    "definition": "making a certain outcome more likely",
+    "hook": "From Latin conducere, \"to lead together\": it leads toward the result. Almost always \"conducive to.\"",
+    "examples": {
+      "interview": "Small teams are more conducive to learning quickly, which is why I like boutique banks.",
+      "finance": "Low rates are conducive to more M&A activity.",
+      "everyday": "The library is more conducive to studying than my room."
+    },
+    "instead_of": "good for",
+    "weak": {
+      "sentence": "Small teams are really good for learning quickly.",
+      "phrase": "really good for"
+    }
+  },
+  {
+    "word": "myopic",
+    "level": 5.5,
+    "pronunciation": "my-OP-ik",
+    "part_of_speech": "adjective",
+    "category": "Giving your opinion",
+    "definition": "focused only on the short term; lacking foresight",
+    "hook": "The medical word for nearsighted: you only see what's right in front of you.",
+    "examples": {
+      "interview": "Cutting the R&D budget to hit one quarter's numbers would have been myopic.",
+      "finance": "Critics call the buyback myopic, given the company's debt load.",
+      "everyday": "Skipping class to sleep in is a little myopic before finals."
+    },
+    "instead_of": "short-sighted",
+    "weak": {
+      "sentence": "Cutting R&D to hit one quarter would have been kind of short-sighted.",
+      "phrase": "kind of short-sighted"
+    }
+  },
+  {
+    "word": "bellwether",
+    "level": 6,
+    "pronunciation": "BEL-weth-er",
+    "part_of_speech": "noun",
+    "category": "Markets and trends",
+    "definition": "something that leads or signals a wider trend",
+    "hook": "The lead sheep (a wether) wore a bell, and the flock followed it.",
+    "examples": {
+      "interview": "I follow FedEx's earnings because it's a bellwether for global trade.",
+      "finance": "Semiconductor stocks are often a bellwether for the broader tech sector.",
+      "everyday": "That county is a bellwether in presidential elections."
+    },
+    "instead_of": "sign of what's coming",
+    "weak": {
+      "sentence": "FedEx's earnings are a good sign of what's coming for global trade.",
+      "phrase": "a good sign of what's coming"
+    }
+  },
+  {
+    "word": "idiosyncratic",
+    "level": 6,
+    "pronunciation": "id-ee-oh-sin-KRAT-ik",
+    "part_of_speech": "adjective",
+    "category": "Markets and trends",
+    "definition": "specific to one person or thing; peculiar to it",
+    "hook": "From Greek idios, \"one's own.\" In finance, idiosyncratic risk is risk that belongs to one company, not the whole market.",
+    "examples": {
+      "interview": "The drop was idiosyncratic to the company, not a sector-wide problem.",
+      "finance": "Diversification reduces idiosyncratic risk but not market risk.",
+      "everyday": "He has an idiosyncratic way of organizing his notes."
+    },
+    "instead_of": "specific to them",
+    "weak": {
+      "sentence": "The drop was just a thing specific to that one company.",
+      "phrase": "just a thing specific to"
+    }
+  }
+];
+// WORDS:END
+
+const POS = { adjective: "adj.", verb: "v.", noun: "n.", phrase: "phr.", conjunction: "conj." };
+const LEVELS = ["New", "Learning", "Learning", "Familiar", "Strong", "Mastered"];
+const INTERVAL_DAYS = [0, 1, 3, 7, 14, 30];
+const CONTEXT_LABEL = { interview: "In an interview", finance: "In finance", everyday: "In conversation" };
+const KIND = {
+  meaning: "Name the word", define: "Pick the meaning", blank: "Fill the blank", upgrade: "Upgrade the phrase",
+  type: "Type the word", build: "Spell it", rewrite: "Rewrite it", use: "Use it yourself", match: "Match the meanings"
+};
+const SESSION_SIZE = 10;
+const DAY = 86400000;
+const LS_KEY = "lexicon-progress-v2";
+
+const app = document.getElementById("app");
+const statusEl = document.getElementById("status");
+
+let progress = blankProgress();
+let store = { ref: null, mode: "local", saving: false, pending: false };
+let sampler = null;
+let view = "home";
+let S = null;
+const open = new Set();
+
+function blankProgress() { return { words: {}, days: [], history: [], updatedAt: 0 }; }
+function wp(word) {
+  return Object.assign({ box: 0, due: 0, seen: 0, right: 0, wrong: 0, lapses: 0, lastWrong: 0 }, progress.words[word] || {});
+}
+
+// ---------- dates ----------
+function dayKey(d) {
+  return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+}
+function startOfToday() { const d = new Date(); d.setHours(0, 0, 0, 0); return d.getTime(); }
+function startDate() {
+  const [y, m, d] = START_DATE.split("-").map(Number);
+  return new Date(y, m - 1, d);
+}
+function unlocked() {
+  const today = new Date(startOfToday());
+  let n = 0;
+  for (const d = startDate(); d <= today; d.setDate(d.getDate() + 1)) if (d.getDay() !== 6) n++;
+  return WORDS.slice(0, Math.min(WORDS.length, n));
+}
+function streak() {
+  const days = new Set(progress.days);
+  const d = new Date();
+  if (!days.has(dayKey(d))) d.setDate(d.getDate() - 1);
+  let n = 0;
+  while (days.has(dayKey(d))) { n++; d.setDate(d.getDate() - 1); }
+  return n;
+}
+function missedRecently() {
+  const cutoff = Date.now() - 7 * DAY;
+  return unlocked().filter(w => { const p = wp(w.word); return p.lastWrong >= cutoff && p.box < 3; });
+}
+
+// ---------- text helpers ----------
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+function reEsc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
+// The inflected form used in a sentence: "mitigate" finds "mitigated", "headwind" finds "headwinds".
+function formIn(w, sentence) {
+  const stem = w.word.replace(/e$/, "");
+  const m = sentence.match(new RegExp("\\b" + reEsc(stem) + "[a-z-]*", "i"));
+  return m ? m[0] : w.word;
+}
+function splitAt(sentence, part) {
+  const i = sentence.indexOf(part);
+  return i < 0 ? [sentence, ""] : [sentence.slice(0, i), sentence.slice(i + part.length)];
+}
+function marked(sentence, form) {
+  const [a, b] = splitAt(sentence, form);
+  return esc(a) + "<b>" + esc(form) + "</b>" + esc(b);
+}
+function blanked(sentence, form, filled) {
+  const [a, b] = splitAt(sentence, form);
+  const mid = filled ? '<span class="blank filled">' + esc(form) + "</span>" : '<span class="blank" aria-label="blank">&nbsp;</span>';
+  return esc(a) + mid + esc(b);
+}
+function underlined(sentence, phrase) {
+  const [a, b] = splitAt(sentence, phrase);
+  return esc(a) + '<span class="weak">' + esc(phrase) + "</span>" + esc(b);
+}
+function norm(s) {
+  return s.toLowerCase().replace(/[‘’]/g, "'").replace(/[^a-z' -]/g, "").replace(/\s+/g, " ").trim().replace(/^the /, "");
+}
+function lev(a, b) {
+  const dp = Array.from({ length: a.length + 1 }, (_, i) => [i]);
+  for (let j = 1; j <= b.length; j++) dp[0][j] = j;
+  for (let i = 1; i <= a.length; i++)
+    for (let j = 1; j <= b.length; j++)
+      dp[i][j] = Math.min(dp[i - 1][j] + 1, dp[i][j - 1] + 1, dp[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+  return dp[a.length][b.length];
+}
+function shuffle(a) {
+  for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+  return a;
+}
+function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
+function meter(box) {
+  let h = '<span class="meter" aria-hidden="true">';
+  for (let i = 1; i <= 5; i++) h += '<i class="' + (i <= box ? "on" : "") + '"></i>';
+  return h + "</span>";
+}
+function capital(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+function isSingle(w) { return !/\s/.test(w.word) && w.word.length <= 12; }
+
+// ---------- storage ----------
+function readLocal() {
+  try { const raw = localStorage.getItem(LS_KEY); return raw ? JSON.parse(raw) : null; } catch (e) { return null; }
+}
+function writeLocal() {
+  try { localStorage.setItem(LS_KEY, JSON.stringify(progress)); } catch (e) {}
+}
+async function save() {
+  progress.updatedAt = Date.now();
+  writeLocal();
+  if (!store.ref) return;
+  if (store.saving) { store.pending = true; return; }
+  store.saving = true;
+  try { await store.ref.set(JSON.parse(JSON.stringify(progress))); }
+  catch (e) { if (e && (e.code === "revoked" || e.code === "invalid_argument" || e.code === "not_granted")) { store.ref = null; store.mode = "local"; } }
+  store.saving = false;
+  if (store.pending) { store.pending = false; save(); }
+}
+async function connect() {
+  if (!window.claude || !window.claude.use) return;
+  window.claude.use("sample").then(fn => { sampler = fn || null; }).catch(() => {});
+  try {
+    const [db, user] = await Promise.all([window.claude.use("db"), window.claude.use("user")]);
+    const id = user ? await user.id() : null;
+    if (!db || !id) return;
+    const ref = db.doc("data/users/" + id + "/progress");
+    const snap = await ref.get();
+    store.ref = ref;
+    store.mode = "account";
+    if (snap.exists) {
+      const remote = snap.data();
+      if ((remote.updatedAt || 0) >= (progress.updatedAt || 0)) {
+        progress = JSON.parse(JSON.stringify(remote));
+        writeLocal();
+      } else {
+        save();
+      }
+    } else if (progress.updatedAt) {
+      save();
+    }
+  } catch (e) {}
+  if (view === "home") render();
+  else renderStatus();
+}
+
+// ---------- building questions ----------
+function distractors(w) {
+  const same = shuffle(WORDS.filter(x => x !== w && x.part_of_speech === w.part_of_speech));
+  const rest = shuffle(WORDS.filter(x => x !== w && x.part_of_speech !== w.part_of_speech));
+  return same.concat(rest).slice(0, 3);
+}
+function typesFor(w, box, retry, used) {
+  const single = isSingle(w);
+  if (retry) return single ? ["build", "meaning", "blank"] : ["meaning", "blank"];
+  if (box <= 0) return ["define", "meaning"].concat(single ? ["build"] : []);
+  if (box === 1) return ["blank", "upgrade"].concat(single ? ["build"] : []);
+  if (box === 2) return ["rewrite", "type"].concat(single ? ["build"] : []);
+  return ["type", "rewrite"].concat(sampler && !used.use ? ["use"] : []);
+}
+// Picks the least-used allowed type so a session mixes formats.
+function makeQuestion(w, box, retry, used) {
+  const allowed = typesFor(w, box, retry, used);
+  const least = Math.min(...allowed.map(t => used[t] || 0));
+  const type = pick(allowed.filter(t => (used[t] || 0) === least));
+  used[type] = (used[type] || 0) + 1;
+  const ctx = pick(["interview", "finance", "everyday"]);
+  const sentence = w.examples[ctx];
+  const q = { w, type, ctx, sentence, form: formIn(w, sentence), retry };
+  if (type === "rewrite") q.form = w.word;
+  if (type === "build") {
+    let tiles;
+    do { tiles = shuffle(w.word.split("")); } while (tiles.join("") === w.word && w.word.length > 2);
+    q.tiles = tiles;
+    q.picked = [];
+  }
+  if (["meaning", "define", "blank", "upgrade"].includes(type)) {
+    const opts = shuffle([w].concat(distractors(w)));
+    q.options = opts.map(o => ({ label: type === "define" ? capital(o.definition) : o.word, correct: o === w }));
+  }
+  return q;
+}
+function makeMatch(words) {
+  return {
+    type: "match", words, retry: false,
+    defs: shuffle(words.map((w, i) => i)),
+    sel: null, done: new Set(), mistakes: new Set(), flash: null
+  };
+}
+function buildSession(mode) {
+  const now = Date.now();
+  const pool = mode === "missed" ? missedRecently() : unlocked();
+  const sorted = pool.slice().sort((a, b) => {
+    const pa = wp(a.word), pb = wp(b.word);
+    const da = pa.due <= now, dbb = pb.due <= now;
+    if (da !== dbb) return da ? -1 : 1;
+    if (pa.lapses !== pb.lapses) return pb.lapses - pa.lapses;
+    if (pa.box !== pb.box) return pa.box - pb.box;
+    return pa.due - pb.due;
+  });
+  const withMatch = pool.length >= 4;
+  const chosen = shuffle(sorted.slice(0, Math.min(withMatch ? SESSION_SIZE - 1 : SESSION_SIZE, pool.length)));
+  const used = {};
+  const queue = chosen.map(w => makeQuestion(w, wp(w.word).box, false, used));
+  if (withMatch) {
+    const weakest = chosen.slice().sort((a, b) => wp(a.word).box - wp(b.word).box).slice(0, 4);
+    queue.splice(Math.min(4, queue.length), 0, makeMatch(shuffle(weakest)));
+  }
+  return {
+    queue, used, i: 0, answered: null, hint: false, startedAt: now,
+    firstRight: 0, firstTotal: 0, results: {}, retries: {}
+  };
+}
+
+// ---------- scoring ----------
+function applyResult(w, correct, withHint) {
+  const p = wp(w.word);
+  const before = p.box;
+  p.seen++;
+  if (correct) {
+    p.right++;
+    if (!withHint) p.box = Math.min(5, p.box + 1);
+    const days = Math.max(1, Math.round(INTERVAL_DAYS[p.box] * (p.lapses >= 2 ? 0.5 : 1)));
+    p.due = startOfToday() + days * DAY;
+  } else {
+    p.wrong++;
+    p.lapses++;
+    p.lastWrong = Date.now();
+    p.box = 0;
+    p.due = Date.now();
+  }
+  progress.words[w.word] = p;
+  const r = S.results[w.word];
+  S.results[w.word] = { before: r ? r.before : before, after: p.box, missed: (r && r.missed) || !correct };
+}
+// A miss brings the word back twice more in this session (2 and 5 questions later).
+function scheduleRetries(w) {
+  const n = S.retries[w.word] || 0;
+  if (n >= 3) return;
+  const offsets = n === 0 ? [2, 5] : [3];
+  offsets.forEach((off, k) => {
+    const pos = Math.min(S.i + off + k, S.queue.length);
+    S.queue.splice(pos, 0, makeQuestion(w, 0, true, S.used));
+  });
+  S.retries[w.word] = n + offsets.length;
+}
+function answer(correct, extra) {
+  const q = S.queue[S.i];
+  S.answered = Object.assign({ correct }, extra || {});
+  if (!q.retry) {
+    S.firstTotal++;
+    if (correct) S.firstRight++;
+    applyResult(q.w, correct, S.hint);
+  } else if (S.results[q.w.word] && !correct) {
+    S.results[q.w.word].missed = true;
+  }
+  if (!correct) scheduleRetries(q.w);
+  save();
+  render();
+}
+
+// ---------- handlers per type ----------
+function choose(i) {
+  if (!S || S.answered) return;
+  const q = S.queue[S.i];
+  if (!q.options || !q.options[i]) return;
+  answer(q.options[i].correct, { chosen: i });
+}
+function checkWord(raw, q) {
+  const a = norm(raw);
+  const targets = [norm(q.form), norm(q.w.word)];
+  const stem = norm(q.w.word.replace(/e$/, ""));
+  if (targets.includes(a) || (a.startsWith(stem) && a.length <= stem.length + 4)) return { ok: true };
+  if (q.w.word.length >= 6 && Math.min(...targets.map(t => lev(a, t))) <= 1) return { ok: true, typo: true };
+  return { ok: false };
+}
+function submitTyped() {
+  if (!S || S.answered) return;
+  const q = S.queue[S.i];
+  const input = document.getElementById("answer");
+  const raw = input ? input.value : "";
+  if (!norm(raw)) { if (input) input.focus(); return; }
+  const r = checkWord(raw, q);
+  answer(r.ok, { typed: raw, typo: r.typo });
+}
+function tapTile(i) {
+  const q = S.queue[S.i];
+  if (S.answered || q.picked.includes(i)) return;
+  q.picked.push(i);
+  if (q.picked.length === q.tiles.length) {
+    const built = q.picked.map(k => q.tiles[k]).join("");
+    answer(built === q.w.word, { built });
+  } else render();
+}
+function untile() { const q = S.queue[S.i]; if (!S.answered && q.picked.length) { q.picked.pop(); render(); } }
+function clearTiles() { const q = S.queue[S.i]; if (!S.answered) { q.picked = []; render(); } }
+function typeTile(ch) {
+  const q = S.queue[S.i];
+  const i = q.tiles.findIndex((c, k) => c === ch && !q.picked.includes(k));
+  if (i >= 0) tapTile(i);
+}
+
+function matchWord(i) {
+  const q = S.queue[S.i];
+  if (S.answered || q.done.has(i)) return;
+  q.sel = q.sel === i ? null : i;
+  render();
+}
+function matchDef(d) {
+  const q = S.queue[S.i];
+  if (S.answered || q.sel === null || q.done.has(d)) return;
+  if (q.sel === d) {
+    q.done.add(d);
+    q.sel = null;
+    if (q.done.size === q.words.length) finishMatch(q);
+    else render();
+  } else {
+    q.mistakes.add(q.sel);
+    q.flash = { w: q.sel, d };
+    const sel = q.sel;
+    q.sel = null;
+    render();
+    setTimeout(() => { if (q.flash && q.flash.w === sel) { q.flash = null; if (S && S.queue[S.i] === q) render(); } }, 650);
+  }
+}
+function finishMatch(q) {
+  const clean = q.mistakes.size === 0;
+  S.answered = { correct: clean };
+  S.firstTotal++;
+  if (clean) S.firstRight++;
+  q.words.forEach((w, i) => {
+    if (q.mistakes.has(i)) { applyResult(w, false, false); scheduleRetries(w); }
+    else { const p = wp(w.word); p.seen++; p.right++; progress.words[w.word] = p; }
+  });
+  save();
+  render();
+}
+
+async function submitUse() {
+  const q = S.queue[S.i];
+  if (S.answered || q.pending) return;
+  const box = document.getElementById("sentence");
+  const text = box ? box.value.trim() : "";
+  if (text.length < 8) { if (box) box.focus(); return; }
+  q.draft = text;
+  if (!sampler) { q.error = "Claude can’t check sentences in this view, so this one is skipped."; render(); return; }
+  q.pending = true;
+  q.error = null;
+  render();
+  const prompt =
+    "You coach a college finance student on speaking well in interviews. They are practicing the word \"" + q.w.word +
+    "\" (" + q.w.part_of_speech + ": " + q.w.definition + ").\n\nTheir sentence:\n\"\"\"" + text + "\"\"\"\n\n" +
+    "Judge whether the word is used correctly and sounds natural, the way a sharp professional would say it out loud. " +
+    "Reply with only JSON: {\"verdict\": \"great\" | \"good\" | \"off\", \"feedback\": \"one short, specific sentence\", " +
+    "\"better\": \"their sentence improved, keeping their meaning and the word\"}. " +
+    "Use \"off\" if the word is missing, misused, or the meaning is wrong. Keep feedback plain and direct.";
+  try {
+    const r = await sampler.json(prompt, { modelTier: "quick" });
+    q.pending = false;
+    const verdict = r && ["great", "good", "off"].includes(r.verdict) ? r.verdict : "off";
+    answer(verdict !== "off", { use: { verdict, feedback: String((r && r.feedback) || ""), better: String((r && r.better) || "") } });
+  } catch (e) {
+    q.pending = false;
+    const code = e && e.code;
+    if (["not_granted", "sampling_disabled", "not_declared", "capability_disabled", "capability_removed"].includes(code)) {
+      sampler = null;
+      q.error = "Claude can’t check sentences in this view, so this one is skipped.";
+    } else if (code === "rate_limited") {
+      q.error = "Claude is busy right now. Try again in a minute, or skip this one.";
+    } else {
+      q.error = "That check didn’t go through. Try again, or skip this one.";
+    }
+    render();
+  }
+}
+function skip() {
+  if (!S) return;
+  S.i++;
+  S.answered = null;
+  S.hint = false;
+  if (S.i >= S.queue.length) finish(); else render();
+}
+function next() {
+  if (!S || !S.answered) return;
+  skip();
+}
+function finish() {
+  const today = dayKey(new Date());
+  if (!progress.days.includes(today)) progress.days.push(today);
+  progress.days = progress.days.slice(-400);
+  progress.history.push({ date: today, right: S.firstRight, total: S.firstTotal, secs: Math.round((Date.now() - S.startedAt) / 1000) });
+  progress.history = progress.history.slice(-60);
+  save();
+  view = "done";
+  render();
+  window.scrollTo(0, 0);
+}
+
+// ---------- rendering ----------
+function renderStatus() {
+  const s = streak();
+  statusEl.textContent = s ? s + (s === 1 ? " day" : " days") + " in a row" : "";
+}
+function render() {
+  renderStatus();
+  if (view === "quiz") renderQuiz();
+  else if (view === "done") renderDone();
+  else renderHome();
+}
+
+function renderHome() {
+  const words = unlocked();
+  const now = Date.now();
+  const due = words.filter(w => wp(w.word).due <= now).length;
+  const missed = missedRecently();
+  const s = streak();
+  const size = Math.min(SESSION_SIZE, words.length);
+  if (!words.length) {
+    const first = startDate().toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
+    app.innerHTML = '<div class="stack"><p class="eyebrow">Practice</p>' +
+      "<h1>Your first word arrives " + esc(first) + ".</h1>" +
+      '<p class="lede">Each morning’s email adds one word here. Saturdays are the weekly quiz, so no new word that day. Come back after your first email to practice it.</p></div>';
+    return;
+  }
+  let h = '<div class="stack">';
+  h += '<p class="eyebrow">Practice</p>';
+  h += "<h1>" + size + " rounds on the words you’ve had so far.</h1>";
+  h += '<p class="lede">About four minutes. Anything you miss comes back twice more in the same round, then again tomorrow.</p>';
+  h += '<div class="actions"><button class="btn primary" id="start" data-act="start"' + (words.length ? "" : " disabled") + ">Start practice</button>";
+  if (missed.length) h += '<button class="btn secondary" data-act="missed">Drill ' + missed.length + " missed " + (missed.length === 1 ? "word" : "words") + "</button>";
+  h += "</div></div>";
+
+  h += '<div class="section"><div class="stats">';
+  h += stat(words.length, "Words learned");
+  h += stat(due, "Due for review");
+  h += stat(missed.length, "Missed this week");
+  h += stat(s, s === 1 ? "Day in a row" : "Days in a row");
+  h += "</div></div>";
+
+  h += '<div class="section"><h2>Word bank</h2><ul class="bank">';
+  words.slice().reverse().forEach(w => {
+    const idx = WORDS.indexOf(w) + 1;
+    const p = wp(w.word);
+    const isOpen = open.has(w.word);
+    const wasMissed = missed.includes(w);
+    h += "<li>";
+    h += '<button class="entry" data-act="toggle" data-w="' + esc(w.word) + '" aria-expanded="' + isOpen + '">';
+    h += '<span><span class="head">' + esc(w.word) + '</span><span class="pos">' + esc(POS[w.part_of_speech] || "") + " · level " + w.level + "</span></span>";
+    h += '<span class="lvl">' + meter(p.box) + '<span class="' + (wasMissed ? "missed" : "") + '">' + (wasMissed ? "Missed" : LEVELS[p.box]) + "</span></span>";
+    h += '<span class="def">' + esc(capital(w.definition)) + "</span>";
+    h += "</button>";
+    if (isOpen) {
+      h += '<div class="detail">';
+      h += '<p class="sub" style="margin:0">' + (w.pronunciation ? "<i>" + esc(w.pronunciation) + "</i> &nbsp;·&nbsp; " : "") + "Word No. " + idx + "</p>";
+      ["interview", "finance", "everyday"].forEach(c => {
+        const sen = w.examples[c];
+        h += '<div class="ctx"><p class="eyebrow">' + CONTEXT_LABEL[c] + "</p><p>“" + marked(sen, formIn(w, sen)) + "”</p></div>";
+      });
+      h += "<p><i>Origin.</i> " + esc(w.hook) + "</p>";
+      h += "<p><i>Instead of</i> “" + esc(w.instead_of) + ",” say <b>" + esc(w.word) + "</b>.</p>";
+      h += '<p class="tally">' + (p.seen ? "Answered " + p.seen + (p.seen === 1 ? " time" : " times") + ", " + p.right + " right" : "Not practiced yet") + "</p>";
+      h += "</div>";
+    }
+    h += "</li>";
+  });
+  h += "</ul>";
+  h += '<p class="note">' + (store.mode === "account" ? "Progress saves to your Claude account." : "Progress is saved on this device.") + "</p>";
+  h += "</div>";
+  app.innerHTML = h;
+}
+function stat(n, label) {
+  return '<div class="stat"><span class="n">' + n + '</span><span class="l">' + label + "</span></div>";
+}
+
+function renderQuiz() {
+  const q = S.queue[S.i];
+  const A = S.answered;
+  const total = S.queue.length;
+  let h = '<div class="qhead"><span>' + (S.i + 1) + " of " + total + "</span><span>" + KIND[q.type] + (q.retry ? ", another look" : "") + "</span></div>";
+  h += '<div class="bar"><i style="width:' + Math.round((S.i / total) * 100) + '%"></i></div>';
+
+  if (q.type === "match") { app.innerHTML = h + matchBody(q, A); return; }
+
+  if (q.type === "meaning") {
+    h += '<p class="prompt">' + esc(capital(q.w.definition)) + ".</p>";
+  } else if (q.type === "define") {
+    h += '<p class="prompt headword">' + esc(q.w.word) + "</p>";
+    h += '<p class="sub"><i>' + esc(POS[q.w.part_of_speech] || "") + "</i>" + (q.w.pronunciation ? " &nbsp;·&nbsp; <i>" + esc(q.w.pronunciation) + "</i>" : "") + "</p>";
+  } else if (q.type === "blank") {
+    h += '<p class="prompt">“' + blanked(q.sentence, q.form, !!A) + "”</p>";
+  } else if (q.type === "upgrade") {
+    h += '<p class="prompt">Instead of saying “' + esc(q.w.instead_of) + ",” which sounds sharper?</p>";
+  } else if (q.type === "type") {
+    h += '<p class="prompt">“' + blanked(q.sentence, q.form, !!A) + "”</p>";
+    h += '<p class="sub">' + esc(capital(q.w.definition)) + ".</p>";
+  } else if (q.type === "rewrite") {
+    h += '<p class="prompt">“' + underlined(q.w.weak.sentence, q.w.weak.phrase) + "”</p>";
+    h += '<p class="sub">Swap the underlined words for one sharper word or phrase.</p>';
+  } else if (q.type === "build") {
+    h += '<p class="prompt">' + esc(capital(q.w.definition)) + ".</p>";
+    h += '<p class="sub">Tap the letters in order, or type them.</p>';
+  } else if (q.type === "use") {
+    h += '<p class="prompt">Use <b>' + esc(q.w.word) + "</b> in a sentence about your own experience.</p>";
+    h += '<p class="sub">An internship, a class project, a club, a team. Claude will check whether it sounds natural.</p>';
+  }
+
+  if (q.options) {
+    h += '<div class="options">';
+    q.options.forEach((o, i) => {
+      let cls = "option" + (q.type === "define" ? "" : " word");
+      if (A) cls += o.correct ? " right" : A.chosen === i ? " wrong" : " dim";
+      h += '<button class="' + cls + '" data-act="opt" data-i="' + i + '"' + (A ? " disabled" : "") + '><span class="k">' + (i + 1) + "</span><span>" + esc(o.label) + "</span></button>";
+    });
+    h += "</div>";
+  } else if (q.type === "type" || q.type === "rewrite") {
+    const cls = A ? (A.correct ? "right" : "wrong") : "";
+    h += '<form class="typed" id="typed" autocomplete="off">';
+    h += '<label class="eyebrow" for="answer">Your answer</label>';
+    h += '<div class="line"><input id="answer" class="' + cls + '" type="text" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="done" value="' + esc(A ? A.typed : "") + '"' + (A ? " readonly" : "") + ">";
+    if (!A) h += '<button class="btn primary" type="submit">Check</button>';
+    h += "</div>";
+    if (!A) {
+      if (S.hint) h += '<p class="hint">Starts with “' + esc(q.w.word.charAt(0)) + "”, " + q.w.word.replace(/[^a-zA-Z]/g, "").length + " letters</p>";
+      else h += '<div><button class="btn quiet" type="button" data-act="hint">Show a hint</button></div>';
+    }
+    h += "</form>";
+  } else if (q.type === "build") {
+    const built = q.picked.map(k => q.tiles[k]);
+    h += '<div class="slots' + (A ? (A.correct ? " right" : " wrong") : "") + '">';
+    for (let i = 0; i < q.tiles.length; i++) h += '<span class="slot">' + esc(built[i] || "") + "</span>";
+    h += "</div>";
+    if (!A) {
+      h += '<div class="tiles">';
+      q.tiles.forEach((c, i) => { h += '<button class="tile" data-act="tile" data-i="' + i + '"' + (q.picked.includes(i) ? " disabled" : "") + ">" + esc(c) + "</button>"; });
+      h += '</div><div class="actions" style="margin-top:10px"><button class="btn quiet" data-act="untile">Undo</button><button class="btn quiet" data-act="cleartiles">Clear</button></div>';
+    }
+  } else if (q.type === "use") {
+    h += '<form class="typed" id="useform" autocomplete="off">';
+    h += '<label class="eyebrow" for="sentence">Your sentence</label>';
+    h += '<textarea id="sentence" rows="3"' + (A || q.pending ? " readonly" : "") + ">" + esc(q.draft || "") + "</textarea>";
+    if (!A) {
+      h += '<div class="actions"><button class="btn primary" type="submit"' + (q.pending ? " disabled" : "") + ">" + (q.pending ? "Checking…" : "Check my sentence") + "</button>";
+      h += '<button class="btn quiet" type="button" data-act="skip">Skip</button></div>';
+      if (q.error) h += '<p class="hint">' + esc(q.error) + "</p>";
+    }
+    h += "</form>";
+  }
+
+  if (A) h += feedbackBody(q, A);
+  app.innerHTML = h;
+  if (A) { const b = document.getElementById("next"); if (b) b.focus({ preventScroll: true }); }
+  else if (q.type === "type" || q.type === "rewrite") { const i = document.getElementById("answer"); if (i) i.focus({ preventScroll: true }); }
+}
+
+function feedbackBody(q, A) {
+  const other = ["interview", "finance", "everyday"].filter(c => c !== q.ctx);
+  const showCtx = (q.type === "blank" || q.type === "type") ? pick(other) : q.ctx;
+  const sen = q.w.examples[showCtx];
+  let h = '<div class="feedback">';
+  let verdict = A.correct ? "Correct." : "Not quite.";
+  if (q.type === "use") verdict = A.use.verdict === "great" ? "Natural and correct." : A.use.verdict === "good" ? "Correct." : "Not quite.";
+  else if (A.correct && A.typo) verdict = "Correct. Watch the spelling: " + q.form + ".";
+  else if (A.correct && S.hint) verdict = "Correct, with a hint. It will come back sooner.";
+  else if (!A.correct && q.type === "build") verdict = "Not quite. It’s spelled " + q.w.word + ".";
+  else if (!A.correct && (q.type === "type" || q.type === "rewrite")) verdict = "Not quite. The word is " + q.w.word + ".";
+  h += '<p class="verdict ' + (A.correct ? "right" : "wrong") + '">' + esc(verdict) + "</p>";
+  if (q.type === "use") {
+    if (A.use.feedback) h += "<p>" + esc(A.use.feedback) + "</p>";
+    if (A.use.better) h += '<p class="eyebrow">Stronger version</p><p>“' + esc(A.use.better) + "”</p>";
+  } else {
+    h += '<p><span class="hw">' + esc(q.w.word) + '</span> <i class="sub">' + esc(POS[q.w.part_of_speech] || "") + "</i></p>";
+    h += "<p>" + esc(capital(q.w.definition)) + ".</p>";
+    if (q.type === "rewrite") {
+      h += '<p class="eyebrow">Stronger</p><p>“' + marked(q.w.examples.interview, formIn(q.w, q.w.examples.interview)) + "”</p>";
+    } else {
+      h += '<p class="eyebrow">' + CONTEXT_LABEL[showCtx] + "</p><p>“" + marked(sen, formIn(q.w, sen)) + "”</p>";
+    }
+    if (!A.correct) h += '<p class="sub"><i>Origin.</i> ' + esc(q.w.hook) + "</p>";
+  }
+  if (!A.correct) h += '<p class="sub">You’ll see this one again in a couple of questions.</p>';
+  h += '<div class="actions"><button class="btn primary" id="next" data-act="next">' + (S.i + 1 >= S.queue.length ? "See results" : "Continue") + "</button></div>";
+  return h + "</div>";
+}
+
+function matchBody(q, A) {
+  let h = '<p class="prompt">Match each word to its meaning.</p>';
+  h += '<p class="sub">Tap a word, then its meaning.</p>';
+  h += '<div class="match"><div class="col">';
+  q.words.forEach((w, i) => {
+    let cls = "pair w";
+    if (q.done.has(i)) cls += " done";
+    else if (q.sel === i) cls += " sel";
+    else if (q.flash && q.flash.w === i) cls += " flash";
+    h += '<button class="' + cls + '" data-act="mw" data-i="' + i + '"' + (q.done.has(i) || A ? " disabled" : "") + ' aria-pressed="' + (q.sel === i) + '">' + esc(w.word) + "</button>";
+  });
+  h += '</div><div class="col">';
+  q.defs.forEach(d => {
+    let cls = "pair";
+    if (q.done.has(d)) cls += " done";
+    else if (q.flash && q.flash.d === d) cls += " flash";
+    h += '<button class="' + cls + '" data-act="md" data-i="' + d + '"' + (q.done.has(d) || A ? " disabled" : "") + ">" + esc(capital(q.words[d].definition)) + "</button>";
+  });
+  h += "</div></div>";
+  if (A) {
+    const missedWords = [...q.mistakes].map(i => q.words[i].word);
+    h += '<div class="feedback">';
+    h += '<p class="verdict ' + (A.correct ? "right" : "wrong") + '">' + (A.correct ? "All four on the first try." : "Mixed up: " + esc(missedWords.join(", ")) + ".") + "</p>";
+    if (!A.correct) h += '<p class="sub">Those come back in the next few questions.</p>';
+    h += '<div class="actions"><button class="btn primary" id="next" data-act="next">' + (S.i + 1 >= S.queue.length ? "See results" : "Continue") + "</button></div></div>";
+  }
+  return h;
+}
+
+function renderDone() {
+  const secs = progress.history.length ? progress.history[progress.history.length - 1].secs : 0;
+  const m = Math.floor(secs / 60), s = secs % 60;
+  const missed = Object.keys(S.results).filter(k => S.results[k].missed);
+  let h = '<div class="stack">';
+  h += '<p class="eyebrow">Practice complete</p>';
+  h += '<p class="score">' + S.firstRight + " of " + S.firstTotal + "</p>";
+  h += '<p class="lede">Right on the first try, in ' + (m ? m + " min " : "") + s + " s." + (missed.length ? " Missed words are due again in your next round." : "") + "</p>";
+  h += '<div class="actions"><button class="btn primary" data-act="home">Back to word bank</button><button class="btn secondary" data-act="start">Practice again</button></div>';
+  h += "</div>";
+  h += '<div class="section"><h2>Where each word stands</h2><ul class="changes">';
+  Object.keys(S.results).sort((a, b) => (S.results[b].missed ? 1 : 0) - (S.results[a].missed ? 1 : 0)).forEach(word => {
+    const r = S.results[word];
+    let move = "<span>" + LEVELS[r.after] + "</span>";
+    if (r.missed) move = '<span class="down">Missed, back to ' + LEVELS[r.after] + "</span>";
+    else if (r.after > r.before) move = '<span class="up">' + LEVELS[r.before] + " to " + LEVELS[r.after] + "</span>";
+    h += '<li><span class="head">' + esc(word) + '</span><span class="move">' + meter(r.after) + move + "</span></li>";
+  });
+  h += "</ul></div>";
+  app.innerHTML = h;
+}
+
+// ---------- events ----------
+function begin(mode) {
+  S = buildSession(mode);
+  if (!S.queue.length) return;
+  view = "quiz";
+  render();
+  window.scrollTo(0, 0);
+}
+app.addEventListener("click", e => {
+  const t = e.target.closest("[data-act]");
+  if (!t) return;
+  const act = t.dataset.act;
+  const i = Number(t.dataset.i);
+  if (act === "start") begin("all");
+  else if (act === "missed") begin("missed");
+  else if (act === "opt") choose(i);
+  else if (act === "next") next();
+  else if (act === "skip") skip();
+  else if (act === "hint") { S.hint = true; render(); }
+  else if (act === "tile") tapTile(i);
+  else if (act === "untile") untile();
+  else if (act === "cleartiles") clearTiles();
+  else if (act === "mw") matchWord(i);
+  else if (act === "md") matchDef(i);
+  else if (act === "home") { view = "home"; S = null; render(); window.scrollTo(0, 0); }
+  else if (act === "toggle") {
+    const w = t.dataset.w;
+    if (open.has(w)) open.delete(w); else open.add(w);
+    renderHome();
+    const el = app.querySelector('[data-w="' + CSS.escape(w) + '"]');
+    if (el) el.focus({ preventScroll: true });
+  }
+});
+app.addEventListener("submit", e => {
+  e.preventDefault();
+  if (e.target.id === "useform") submitUse(); else submitTyped();
+});
+document.addEventListener("keydown", e => {
+  if (view !== "quiz" || !S) return;
+  const q = S.queue[S.i];
+  const inField = document.activeElement && /^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName);
+  if (S.answered) {
+    if (e.key === "Enter" && document.activeElement && document.activeElement.id !== "next") { e.preventDefault(); next(); }
+    return;
+  }
+  if (q.options && /^[1-4]$/.test(e.key)) { e.preventDefault(); choose(Number(e.key) - 1); }
+  else if (q.type === "build" && !inField) {
+    if (e.key === "Backspace") { e.preventDefault(); untile(); }
+    else if (/^[a-z]$/i.test(e.key)) { e.preventDefault(); typeTile(e.key.toLowerCase()); }
+  }
+});
+
+// ---------- boot ----------
+function start(data) {
+  if (data && data.progress) progress = data.progress;
+  else { const local = readLocal(); if (local) progress = local; }
+  render();
+  connect();
+}
+if (window.claude && window.claude.hot && window.claude.hot.snapshot) window.claude.hot.snapshot(() => ({ progress }));
+window.claude && window.claude.hot && window.claude.hot.ready ? window.claude.hot.ready(start) : start((window.claude && window.claude.hot && window.claude.hot.data) || {});
+</script>

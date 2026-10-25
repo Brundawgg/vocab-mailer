@@ -1,1 +1,1161 @@
-[]
+[
+  {
+    "word": "contingent",
+    "level": 4,
+    "pronunciation": "kun-TIN-jent",
+    "part_of_speech": "adjective",
+    "category": "Analyzing a problem",
+    "definition": "depending on something else happening",
+    "hook": "From Latin contingere, \"to touch.\" A contingent outcome is touching another event and can't happen without it.",
+    "examples": {
+      "interview": "Our recommendation was contingent on the client hitting Q3 targets, so we modeled two scenarios.",
+      "finance": "The acquisition is contingent on regulatory approval.",
+      "everyday": "Whether I take the offer is contingent on the start date."
+    },
+    "instead_of": "it depends on",
+    "weak": {
+      "sentence": "Whether the deal closes kind of depends on the financing.",
+      "phrase": "kind of depends on"
+    }
+  },
+  {
+    "word": "pragmatic",
+    "level": 3.5,
+    "pronunciation": "prag-MAT-ik",
+    "part_of_speech": "adjective",
+    "category": "Talking about yourself",
+    "definition": "focused on what works in practice rather than in theory",
+    "hook": "Shares a root with \"practice\": pragmatic people care about what actually works.",
+    "examples": {
+      "interview": "I took a pragmatic approach and prioritized the fixes with the biggest impact.",
+      "finance": "A pragmatic investor cares more about cash flow than a perfect narrative.",
+      "everyday": "We were pragmatic and picked the restaurant closest to everyone."
+    },
+    "instead_of": "practical",
+    "weak": {
+      "sentence": "I took a practical approach and fixed the biggest issues first.",
+      "phrase": "practical"
+    }
+  },
+  {
+    "word": "mitigate",
+    "level": 3.5,
+    "pronunciation": "MIT-ih-gayt",
+    "part_of_speech": "verb",
+    "category": "Strong verbs",
+    "definition": "to make something less severe without fully removing it",
+    "hook": "Sounds like \"mitt\": you put on a mitt to soften the impact, not stop the ball.",
+    "examples": {
+      "interview": "I mitigated the scheduling risk by building a buffer into every deadline.",
+      "finance": "We diversified the portfolio to mitigate concentration risk.",
+      "everyday": "Leaving early mitigates the traffic, but doesn't avoid it."
+    },
+    "instead_of": "make smaller",
+    "weak": {
+      "sentence": "We spread out our positions to make the risk smaller.",
+      "phrase": "make the risk smaller"
+    }
+  },
+  {
+    "word": "caveat",
+    "level": 4,
+    "pronunciation": "KAV-ee-ot",
+    "part_of_speech": "noun",
+    "category": "Hedging and nuance",
+    "definition": "a warning or condition attached to a statement",
+    "hook": "Latin for \"let him beware,\" as in caveat emptor, \"buyer beware.\"",
+    "examples": {
+      "interview": "I'd recommend the deal, with one caveat: the data only covers two years.",
+      "finance": "The analyst's upgrade came with the caveat that rates stay flat.",
+      "everyday": "The apartment is great, with the caveat that there's no parking."
+    },
+    "instead_of": "but one thing is",
+    "weak": {
+      "sentence": "I'd recommend the deal, but one thing is the data only covers two years.",
+      "phrase": "but one thing is"
+    }
+  },
+  {
+    "word": "synthesize",
+    "level": 3.5,
+    "pronunciation": "SIN-thuh-size",
+    "part_of_speech": "verb",
+    "category": "Strong verbs",
+    "definition": "to combine information from several sources into one clear view",
+    "hook": "Think of a synthesizer: many sounds combined into one track.",
+    "examples": {
+      "interview": "I synthesized research from four teammates into a single investment memo.",
+      "finance": "The pitch book synthesizes the comps, the DCF, and the precedent deals.",
+      "everyday": "She synthesized everyone's ideas into one trip plan."
+    },
+    "instead_of": "put together",
+    "weak": {
+      "sentence": "I put together everyone's research into one memo.",
+      "phrase": "put together"
+    }
+  },
+  {
+    "word": "volatile",
+    "level": 3,
+    "pronunciation": "VOL-uh-tul",
+    "part_of_speech": "adjective",
+    "category": "Markets and trends",
+    "definition": "likely to change sharply and unpredictably",
+    "hook": "Related to \"volley\": like a ball flying back and forth.",
+    "examples": {
+      "interview": "Oil prices were volatile that summer, so we stress-tested every assumption.",
+      "finance": "Small-cap tech stocks tend to be more volatile than utilities.",
+      "everyday": "The weather's been volatile, so bring a jacket."
+    },
+    "instead_of": "all over the place",
+    "weak": {
+      "sentence": "Oil prices were all over the place that summer.",
+      "phrase": "all over the place"
+    }
+  },
+  {
+    "word": "spearhead",
+    "level": 3.5,
+    "pronunciation": "SPEER-hed",
+    "part_of_speech": "verb",
+    "category": "Strong verbs",
+    "definition": "to lead an effort from the front",
+    "hook": "The spearhead is the tip of the spear, the first part to strike.",
+    "examples": {
+      "interview": "I spearheaded our club's first stock pitch competition.",
+      "finance": "She spearheaded the firm's expansion into private credit.",
+      "everyday": "He spearheaded planning for the team's end-of-season trip."
+    },
+    "instead_of": "was in charge of",
+    "weak": {
+      "sentence": "I was in charge of starting our club's first pitch competition.",
+      "phrase": "was in charge of starting"
+    }
+  },
+  {
+    "word": "candid",
+    "level": 3.5,
+    "pronunciation": "KAN-did",
+    "part_of_speech": "adjective",
+    "category": "Teamwork and conflict",
+    "definition": "honest and direct, even when it's uncomfortable",
+    "hook": "A candid photo catches people as they really are.",
+    "examples": {
+      "interview": "I had a candid conversation with a teammate who was missing deadlines.",
+      "finance": "Investors appreciated management's candid view of the weak quarter.",
+      "everyday": "To be candid, I liked the first option better."
+    },
+    "instead_of": "honest",
+    "weak": {
+      "sentence": "I had a really honest talk with a teammate who kept missing deadlines.",
+      "phrase": "really honest"
+    }
+  },
+  {
+    "word": "headwind",
+    "level": 3.5,
+    "pronunciation": "HED-wind",
+    "part_of_speech": "noun",
+    "category": "Markets and trends",
+    "definition": "a factor that slows progress or hurts performance",
+    "hook": "Wind blowing in your face while you run: you can still move, just slower.",
+    "examples": {
+      "interview": "Higher rates are a headwind for the sector, but the company's balance sheet is strong.",
+      "finance": "Management cited currency headwinds for the revenue miss.",
+      "everyday": "Midterms were a real headwind for my workout routine."
+    },
+    "instead_of": "problem",
+    "weak": {
+      "sentence": "Higher rates are a problem for the whole sector.",
+      "phrase": "a problem"
+    }
+  },
+  {
+    "word": "prudent",
+    "level": 3.5,
+    "pronunciation": "PROO-dent",
+    "part_of_speech": "adjective",
+    "category": "Giving your opinion",
+    "definition": "careful and sensible about future risk",
+    "hook": "Shortened from \"provident\": seeing ahead.",
+    "examples": {
+      "interview": "Given the uncertainty, I thought it was prudent to keep more cash on hand.",
+      "finance": "It would be prudent to hedge the currency exposure.",
+      "everyday": "It's prudent to book flights early for Thanksgiving."
+    },
+    "instead_of": "smart",
+    "weak": {
+      "sentence": "Given the uncertainty, it seemed smart to keep more cash on hand.",
+      "phrase": "smart"
+    }
+  },
+  {
+    "word": "that said",
+    "level": 2.5,
+    "pronunciation": "",
+    "part_of_speech": "phrase",
+    "category": "Phrases and transitions",
+    "definition": "used to add a counterpoint after making a claim",
+    "hook": "You've said one thing; now you're weighing it against another.",
+    "examples": {
+      "interview": "The returns were strong. That said, most of it came from one position.",
+      "finance": "Valuation looks stretched. That said, growth has consistently beaten estimates.",
+      "everyday": "It's expensive. That said, it'll last ten years."
+    },
+    "instead_of": "but",
+    "weak": {
+      "sentence": "The returns were strong. But, like, most of it came from one position.",
+      "phrase": "But, like,"
+    }
+  },
+  {
+    "word": "the key trade-off",
+    "level": 3,
+    "pronunciation": "",
+    "part_of_speech": "phrase",
+    "category": "Phrases and transitions",
+    "definition": "used to frame a decision around what you gain versus what you give up",
+    "hook": "Every decision trades one thing for another. Naming it shows structured thinking.",
+    "examples": {
+      "interview": "The key trade-off was speed versus accuracy, and we chose accuracy because the client was presenting to their board.",
+      "finance": "The key trade-off with leverage is higher returns versus higher risk of distress.",
+      "everyday": "The key trade-off with living off campus is more space versus a longer walk."
+    },
+    "instead_of": "the pros and cons",
+    "weak": {
+      "sentence": "The pros and cons were basically speed versus accuracy.",
+      "phrase": "The pros and cons were basically"
+    }
+  },
+  {
+    "word": "nuanced",
+    "level": 4,
+    "pronunciation": "NOO-ahnst",
+    "part_of_speech": "adjective",
+    "category": "Hedging and nuance",
+    "definition": "showing subtle differences instead of a simple yes or no",
+    "hook": "From French nuance, \"shade of color\": you see shades instead of black and white.",
+    "examples": {
+      "interview": "The answer was more nuanced: the strategy worked in two regions but not the third.",
+      "finance": "A nuanced read of the guidance suggests demand is slowing, not collapsing.",
+      "everyday": "His take on the election was more nuanced than I expected."
+    },
+    "instead_of": "complicated",
+    "weak": {
+      "sentence": "The answer was more complicated than just yes or no.",
+      "phrase": "complicated"
+    }
+  },
+  {
+    "word": "bolster",
+    "level": 4.5,
+    "pronunciation": "BOHL-ster",
+    "part_of_speech": "verb",
+    "category": "Strong verbs",
+    "definition": "to strengthen or support something",
+    "hook": "A bolster is a long, firm pillow that props you up.",
+    "examples": {
+      "interview": "I bolstered my pitch with three comparable deals.",
+      "finance": "The buyback bolstered investor confidence after a weak quarter.",
+      "everyday": "A good night's sleep bolstered my confidence before the exam."
+    },
+    "instead_of": "make stronger",
+    "weak": {
+      "sentence": "I used three comparable deals to make my pitch stronger.",
+      "phrase": "make my pitch stronger"
+    }
+  },
+  {
+    "word": "salient",
+    "level": 5,
+    "pronunciation": "SAY-lee-ent",
+    "part_of_speech": "adjective",
+    "category": "Analyzing a problem",
+    "definition": "most noticeable or important",
+    "hook": "From Latin salire, \"to leap\": a salient point leaps out at you.",
+    "examples": {
+      "interview": "The salient point is that margins expanded even as revenue fell.",
+      "finance": "The salient risk in this deal is customer concentration.",
+      "everyday": "The salient detail in the email was the new deadline."
+    },
+    "instead_of": "main",
+    "weak": {
+      "sentence": "The main thing is that margins grew even as revenue fell.",
+      "phrase": "main thing"
+    }
+  },
+  {
+    "word": "exacerbate",
+    "level": 5,
+    "pronunciation": "ig-ZASS-er-bayt",
+    "part_of_speech": "verb",
+    "category": "Strong verbs",
+    "definition": "to make a bad situation worse",
+    "hook": "Shares a root with \"acerbic,\" meaning harsh or bitter: it adds bitterness to a problem.",
+    "examples": {
+      "interview": "Rushing the model would have exacerbated the errors, so I rebuilt the inputs first.",
+      "finance": "Rising rates exacerbated the pressure on highly leveraged companies.",
+      "everyday": "Skipping sleep only exacerbates the stress."
+    },
+    "instead_of": "make worse",
+    "weak": {
+      "sentence": "Rising rates made things a lot worse for leveraged companies.",
+      "phrase": "made things a lot worse"
+    }
+  },
+  {
+    "word": "corroborate",
+    "level": 5,
+    "pronunciation": "kuh-ROB-uh-rayt",
+    "part_of_speech": "verb",
+    "category": "Analyzing a problem",
+    "definition": "to confirm a claim with additional evidence",
+    "hook": "From Latin robur, \"strength,\" as in robust: you add strength to a claim.",
+    "examples": {
+      "interview": "I corroborated management's numbers with channel checks before we built the model.",
+      "finance": "Credit card data corroborated the company's strong holiday sales.",
+      "everyday": "Two friends corroborated her version of the story."
+    },
+    "instead_of": "back up",
+    "weak": {
+      "sentence": "I backed up management's numbers with channel checks.",
+      "phrase": "backed up"
+    }
+  },
+  {
+    "word": "inflection point",
+    "level": 5,
+    "pronunciation": "in-FLEK-shun point",
+    "part_of_speech": "phrase",
+    "category": "Markets and trends",
+    "definition": "the moment a trend changes direction",
+    "hook": "From calculus: the point where a curve switches from bending one way to the other.",
+    "examples": {
+      "interview": "Joining the research team was an inflection point in how I think about markets.",
+      "finance": "Analysts see this quarter as an inflection point for margins.",
+      "everyday": "Moving away for college was an inflection point for me."
+    },
+    "instead_of": "turning point",
+    "weak": {
+      "sentence": "This quarter could be a big turning point for margins.",
+      "phrase": "big turning point"
+    }
+  },
+  {
+    "word": "tenuous",
+    "level": 5.5,
+    "pronunciation": "TEN-yoo-us",
+    "part_of_speech": "adjective",
+    "category": "Giving your opinion",
+    "definition": "weak or thin, and easily broken",
+    "hook": "From Latin tenuis, \"thin\": a tenuous link is hanging by a thread.",
+    "examples": {
+      "interview": "The link between the campaign and the sales bump was tenuous, so I didn't lean on it.",
+      "finance": "The bull case rests on a tenuous assumption about pricing power.",
+      "everyday": "Our plan to meet up this weekend is tenuous at best."
+    },
+    "instead_of": "weak",
+    "weak": {
+      "sentence": "The connection between the ad and the sales bump was pretty weak.",
+      "phrase": "pretty weak"
+    }
+  },
+  {
+    "word": "cogent",
+    "level": 6,
+    "pronunciation": "KOH-jent",
+    "part_of_speech": "adjective",
+    "category": "Giving your opinion",
+    "definition": "clear, logical, and convincing",
+    "hook": "Related to \"cogitate,\" to think hard: a cogent argument is well thought out.",
+    "examples": {
+      "interview": "She made a cogent case for exiting the position before earnings.",
+      "finance": "The memo laid out a cogent thesis in two pages.",
+      "everyday": "That's a cogent argument for leaving an hour earlier."
+    },
+    "instead_of": "convincing",
+    "weak": {
+      "sentence": "She made a really convincing case for selling before earnings.",
+      "phrase": "really convincing"
+    }
+  },
+  {
+    "word": "circumspect",
+    "level": 6,
+    "pronunciation": "SUR-kum-spekt",
+    "part_of_speech": "adjective",
+    "category": "Talking about yourself",
+    "definition": "careful to consider risks before acting or speaking",
+    "hook": "Latin for \"looking around\": you look around before you move.",
+    "examples": {
+      "interview": "I was circumspect about sharing projections until the numbers were final.",
+      "finance": "Lenders have become more circumspect about commercial real estate.",
+      "everyday": "Be circumspect about what you post online during recruiting."
+    },
+    "instead_of": "careful",
+    "weak": {
+      "sentence": "Lenders have gotten a lot more careful about commercial real estate.",
+      "phrase": "a lot more careful"
+    }
+  },
+  {
+    "word": "commensurate",
+    "level": 6,
+    "pronunciation": "kuh-MEN-sur-it",
+    "part_of_speech": "adjective",
+    "category": "Markets and trends",
+    "definition": "in proportion to something else",
+    "hook": "\"Co\" plus \"measure\": two things measured together.",
+    "examples": {
+      "interview": "I spent time on each issue commensurate with its impact on the deal.",
+      "finance": "Investors demand returns commensurate with the risk they take.",
+      "everyday": "The price was commensurate with the quality."
+    },
+    "instead_of": "in line with",
+    "weak": {
+      "sentence": "Investors want returns that match up with the risk they take.",
+      "phrase": "that match up with"
+    }
+  },
+  {
+    "word": "underscore",
+    "level": 4,
+    "pronunciation": "UN-der-skor",
+    "part_of_speech": "verb",
+    "category": "Strong verbs",
+    "definition": "to emphasize or show how important something is",
+    "hook": "Literally drawing a line under words so no one misses them.",
+    "examples": {
+      "interview": "That project underscored how much I enjoy working with real financial data.",
+      "finance": "The weak jobs report underscores the case for a rate cut.",
+      "everyday": "Missing the bus twice underscored that I need to leave earlier."
+    },
+    "instead_of": "show",
+    "weak": {
+      "sentence": "The weak jobs report really shows the case for a rate cut.",
+      "phrase": "really shows"
+    }
+  },
+  {
+    "word": "articulate",
+    "level": 4,
+    "pronunciation": "ar-TIK-yoo-layt",
+    "part_of_speech": "verb",
+    "category": "Talking about yourself",
+    "definition": "to express an idea clearly and precisely",
+    "hook": "From Latin articulus, \"small joint\": speech broken into clean, distinct parts.",
+    "examples": {
+      "interview": "I articulated the investment thesis in three points so the panel could follow it quickly.",
+      "finance": "The CEO struggled to articulate a clear growth strategy on the call.",
+      "everyday": "It took me a while to articulate why I didn't like the plan."
+    },
+    "instead_of": "explain",
+    "weak": {
+      "sentence": "I explained the thesis in a clear way using three points.",
+      "phrase": "explained the thesis in a clear way"
+    }
+  },
+  {
+    "word": "catalyst",
+    "level": 4,
+    "pronunciation": "KAT-uh-list",
+    "part_of_speech": "noun",
+    "category": "Markets and trends",
+    "definition": "an event or factor that triggers change",
+    "hook": "In chemistry, a catalyst speeds up a reaction without being used up.",
+    "examples": {
+      "interview": "The near-term catalyst for the stock is the FDA decision in March.",
+      "finance": "Analysts see the spin-off as a catalyst for re-rating the shares.",
+      "everyday": "Moving to a new dorm was the catalyst for fixing my sleep schedule."
+    },
+    "instead_of": "reason",
+    "weak": {
+      "sentence": "The big reason the stock could move is the FDA decision in March.",
+      "phrase": "big reason the stock could move"
+    }
+  },
+  {
+    "word": "tangible",
+    "level": 4,
+    "pronunciation": "TAN-juh-bul",
+    "part_of_speech": "adjective",
+    "category": "Talking about yourself",
+    "definition": "real and measurable, not just theoretical",
+    "hook": "From Latin tangere, \"to touch\": something you can put your hands on.",
+    "examples": {
+      "interview": "I wanted a role where my work had a tangible impact, so I joined the club's investment fund.",
+      "finance": "The company trades below its tangible book value.",
+      "everyday": "Studying with a group gave me tangible results on the midterm."
+    },
+    "instead_of": "real",
+    "weak": {
+      "sentence": "I wanted my work to have a real, actual impact.",
+      "phrase": "real, actual"
+    }
+  },
+  {
+    "word": "plausible",
+    "level": 4,
+    "pronunciation": "PLAW-zuh-bul",
+    "part_of_speech": "adjective",
+    "category": "Hedging and nuance",
+    "definition": "reasonable and possibly true",
+    "hook": "From Latin plaudere, \"to applaud\": once meant worth applauding, now worth believing.",
+    "examples": {
+      "interview": "A plausible explanation for the margin drop is higher freight costs.",
+      "finance": "A soft landing is still a plausible scenario for next year.",
+      "everyday": "His excuse was plausible, so I let it go."
+    },
+    "instead_of": "possible",
+    "weak": {
+      "sentence": "One possible kind of explanation for the margin drop is freight costs.",
+      "phrase": "possible kind of"
+    }
+  },
+  {
+    "word": "viable",
+    "level": 4,
+    "pronunciation": "VY-uh-bul",
+    "part_of_speech": "adjective",
+    "category": "Analyzing a problem",
+    "definition": "able to work or succeed",
+    "hook": "From French vie, \"life\": a viable plan can survive on its own.",
+    "examples": {
+      "interview": "We tested three pricing models, and only one was viable at our volume.",
+      "finance": "Without new funding, the business may not be viable past next year.",
+      "everyday": "Biking to campus isn't viable when it rains."
+    },
+    "instead_of": "workable",
+    "weak": {
+      "sentence": "Only one pricing model would actually work out at our volume.",
+      "phrase": "would actually work out"
+    }
+  },
+  {
+    "word": "pivotal",
+    "level": 4,
+    "pronunciation": "PIV-uh-tul",
+    "part_of_speech": "adjective",
+    "category": "Talking about yourself",
+    "definition": "of central importance; the point everything turns on",
+    "hook": "A pivot is the single point a whole door swings on.",
+    "examples": {
+      "interview": "My internship was pivotal in deciding I wanted to work in banking.",
+      "finance": "The Fed's next meeting is pivotal for the bond market.",
+      "everyday": "That conversation was pivotal for our friendship."
+    },
+    "instead_of": "really important",
+    "weak": {
+      "sentence": "My internship was really important in deciding I wanted to do banking.",
+      "phrase": "really important"
+    }
+  },
+  {
+    "word": "trajectory",
+    "level": 4,
+    "pronunciation": "truh-JEK-tuh-ree",
+    "part_of_speech": "noun",
+    "category": "Markets and trends",
+    "definition": "the path or direction something is moving over time",
+    "hook": "From physics: the path a thrown object follows through the air.",
+    "examples": {
+      "interview": "I was drawn to the firm because of its growth trajectory in middle-market deals.",
+      "finance": "Revenue is on a steady upward trajectory despite higher costs.",
+      "everyday": "My grades are finally on the right trajectory."
+    },
+    "instead_of": "direction",
+    "weak": {
+      "sentence": "Revenue is going in a good direction despite higher costs.",
+      "phrase": "going in a good direction"
+    }
+  },
+  {
+    "word": "on balance",
+    "level": 4,
+    "pronunciation": "",
+    "part_of_speech": "phrase",
+    "category": "Phrases and transitions",
+    "definition": "after weighing everything, used to give your overall view",
+    "hook": "Picture a scale: you've put both sides on it and are reading where it settles.",
+    "examples": {
+      "interview": "On balance, I'd buy the stock, because the upside outweighs the regulatory risk.",
+      "finance": "On balance, the quarter was better than the market expected.",
+      "everyday": "On balance, the trip was worth the cost."
+    },
+    "instead_of": "overall",
+    "weak": {
+      "sentence": "Overall I guess I'd buy the stock, since the upside is bigger.",
+      "phrase": "Overall I guess"
+    }
+  },
+  {
+    "word": "to put that in context",
+    "level": 3.5,
+    "pronunciation": "",
+    "part_of_speech": "phrase",
+    "category": "Phrases and transitions",
+    "definition": "used to compare a number or fact to something familiar so it means more",
+    "hook": "A number alone means little; context gives it a frame.",
+    "examples": {
+      "interview": "We cut costs by $40,000. To put that in context, that was a fifth of the club's annual budget.",
+      "finance": "The fine was $2 billion. To put that in context, it's about two weeks of the bank's profit.",
+      "everyday": "I ran 15 miles this week. To put that in context, I usually run five."
+    },
+    "instead_of": "which is a lot",
+    "weak": {
+      "sentence": "We cut costs by $40,000, which is a lot for a club.",
+      "phrase": "which is a lot"
+    }
+  },
+  {
+    "word": "ambiguous",
+    "level": 4,
+    "pronunciation": "am-BIG-yoo-us",
+    "part_of_speech": "adjective",
+    "category": "Analyzing a problem",
+    "definition": "open to more than one meaning; unclear",
+    "hook": "From Latin ambi-, \"both ways\": it can be read two ways at once.",
+    "examples": {
+      "interview": "The assignment was ambiguous, so I asked two clarifying questions before starting.",
+      "finance": "Management's guidance was ambiguous about second-half margins.",
+      "everyday": "Her text was ambiguous, so I called her."
+    },
+    "instead_of": "unclear",
+    "weak": {
+      "sentence": "The assignment was kind of unclear, so I asked questions first.",
+      "phrase": "kind of unclear"
+    }
+  },
+  {
+    "word": "resilient",
+    "level": 4,
+    "pronunciation": "rih-ZIL-yent",
+    "part_of_speech": "adjective",
+    "category": "Markets and trends",
+    "definition": "able to recover quickly from setbacks",
+    "hook": "From Latin resilire, \"to spring back,\" like a ball bouncing off the floor.",
+    "examples": {
+      "interview": "The team stayed resilient after we lost our biggest sponsor, and we replaced the funding in a month.",
+      "finance": "Consumer spending has been more resilient than economists expected.",
+      "everyday": "Kids are more resilient than we give them credit for."
+    },
+    "instead_of": "tough",
+    "weak": {
+      "sentence": "Consumer spending has held up and been pretty tough.",
+      "phrase": "held up and been pretty tough"
+    }
+  },
+  {
+    "word": "discern",
+    "level": 4.5,
+    "pronunciation": "dih-SURN",
+    "part_of_speech": "verb",
+    "category": "Analyzing a problem",
+    "definition": "to notice or understand something that isn't obvious",
+    "hook": "From Latin discernere, \"to separate\": picking out one thing from the noise.",
+    "examples": {
+      "interview": "From the customer data, I discerned that most churn came from one region.",
+      "finance": "It's hard to discern a clear trend from one quarter of results.",
+      "everyday": "I could barely discern what he was saying over the music."
+    },
+    "instead_of": "figure out",
+    "weak": {
+      "sentence": "From the data, I figured out that most churn came from one region.",
+      "phrase": "figured out"
+    }
+  },
+  {
+    "word": "scrutinize",
+    "level": 4.5,
+    "pronunciation": "SKROO-tuh-nize",
+    "part_of_speech": "verb",
+    "category": "Strong verbs",
+    "definition": "to examine something closely and carefully",
+    "hook": "Often traced to Latin scruta, \"rags\": searching through every scrap.",
+    "examples": {
+      "interview": "I scrutinized every assumption in the model before we sent it to the client.",
+      "finance": "Regulators are scrutinizing the merger for antitrust issues.",
+      "everyday": "She scrutinized the lease before signing it."
+    },
+    "instead_of": "look closely at",
+    "weak": {
+      "sentence": "I looked really closely at every assumption in the model.",
+      "phrase": "looked really closely at"
+    }
+  },
+  {
+    "word": "granular",
+    "level": 4.5,
+    "pronunciation": "GRAN-yoo-ler",
+    "part_of_speech": "adjective",
+    "category": "Analyzing a problem",
+    "definition": "very detailed, broken down into small parts",
+    "hook": "Like grains of sand: the picture is broken into its smallest pieces.",
+    "examples": {
+      "interview": "I built a more granular model that forecast revenue by store instead of by region.",
+      "finance": "Investors want more granular disclosure on the cloud segment.",
+      "everyday": "My budget got more granular once I tracked every coffee."
+    },
+    "instead_of": "detailed",
+    "weak": {
+      "sentence": "I built a much more detailed and broken-down model by store.",
+      "phrase": "much more detailed and broken-down"
+    }
+  },
+  {
+    "word": "holistic",
+    "level": 4.5,
+    "pronunciation": "hoh-LIS-tik",
+    "part_of_speech": "adjective",
+    "category": "Analyzing a problem",
+    "definition": "looking at the whole picture rather than separate parts",
+    "hook": "From Greek holos, \"whole.\"",
+    "examples": {
+      "interview": "I tried to take a holistic view of the deal, including culture fit, not just the numbers.",
+      "finance": "A holistic review of the portfolio showed too much exposure to one sector.",
+      "everyday": "The coach took a holistic approach to training, including sleep and diet."
+    },
+    "instead_of": "big-picture",
+    "weak": {
+      "sentence": "I tried to look at the whole thing overall, not just the numbers.",
+      "phrase": "look at the whole thing overall"
+    }
+  },
+  {
+    "word": "reconcile",
+    "level": 4.5,
+    "pronunciation": "REK-un-sile",
+    "part_of_speech": "verb",
+    "category": "Strong verbs",
+    "definition": "to make two things agree or fit together",
+    "hook": "Latin for \"bring together again.\" Accountants reconcile two sets of numbers until they match.",
+    "examples": {
+      "interview": "I reconciled two conflicting data sources before presenting the numbers.",
+      "finance": "Analysts struggled to reconcile the strong guidance with falling orders.",
+      "everyday": "I'm still trying to reconcile my budget with my spending."
+    },
+    "instead_of": "make match",
+    "weak": {
+      "sentence": "I made two conflicting data sources match up before presenting.",
+      "phrase": "made two conflicting data sources match up"
+    }
+  },
+  {
+    "word": "erode",
+    "level": 4.5,
+    "pronunciation": "ih-ROHD",
+    "part_of_speech": "verb",
+    "category": "Markets and trends",
+    "definition": "to wear away gradually",
+    "hook": "From Latin erodere, \"to gnaw away,\" like water slowly cutting through rock.",
+    "examples": {
+      "interview": "New competitors eroded the client's market share, so we looked at a price cut.",
+      "finance": "Inflation erodes the real value of fixed-income returns.",
+      "everyday": "Constant small delays eroded my trust in the app."
+    },
+    "instead_of": "slowly hurt",
+    "weak": {
+      "sentence": "New competitors slowly hurt the client's market share.",
+      "phrase": "slowly hurt"
+    }
+  },
+  {
+    "word": "adept",
+    "level": 4.5,
+    "pronunciation": "uh-DEPT",
+    "part_of_speech": "adjective",
+    "category": "Talking about yourself",
+    "definition": "very skilled at something",
+    "hook": "Alchemists who had mastered their secrets were called adepts.",
+    "examples": {
+      "interview": "I became adept at building three-statement models during my internship.",
+      "finance": "She's adept at structuring complicated debt deals.",
+      "everyday": "He's adept at calming people down."
+    },
+    "instead_of": "good at",
+    "weak": {
+      "sentence": "I got really good at building three-statement models.",
+      "phrase": "really good at"
+    }
+  },
+  {
+    "word": "meticulous",
+    "level": 4.5,
+    "pronunciation": "muh-TIK-yuh-lus",
+    "part_of_speech": "adjective",
+    "category": "Talking about yourself",
+    "definition": "extremely careful about details",
+    "hook": "From Latin meticulosus, \"fearful\": so careful it's as if you're afraid of a single mistake.",
+    "examples": {
+      "interview": "I'm meticulous about checking formulas, because one wrong cell can change a valuation.",
+      "finance": "The audit team was meticulous in reviewing revenue recognition.",
+      "everyday": "She keeps meticulous notes in every class."
+    },
+    "instead_of": "careful",
+    "weak": {
+      "sentence": "I'm super careful about checking formulas in models.",
+      "phrase": "super careful"
+    }
+  },
+  {
+    "word": "contend",
+    "level": 4.5,
+    "pronunciation": "kun-TEND",
+    "part_of_speech": "verb",
+    "category": "Giving your opinion",
+    "definition": "to argue or state that something is true",
+    "hook": "From Latin contendere, \"to strive\": you're putting your position into the contest.",
+    "examples": {
+      "interview": "I'd contend that the market is underpricing the company's international growth.",
+      "finance": "Bulls contend that the selloff was overdone.",
+      "everyday": "My roommate contends that pineapple belongs on pizza."
+    },
+    "instead_of": "think",
+    "weak": {
+      "sentence": "I kind of think the market is underpricing their growth.",
+      "phrase": "kind of think"
+    }
+  },
+  {
+    "word": "concede",
+    "level": 4.5,
+    "pronunciation": "kun-SEED",
+    "part_of_speech": "verb",
+    "category": "Disagreeing politely",
+    "definition": "to admit that something is true, often reluctantly",
+    "hook": "From Latin concedere, \"to step aside\": you yield ground on one point.",
+    "examples": {
+      "interview": "I'll concede that the valuation is high, but the growth justifies it.",
+      "finance": "Management conceded that the integration had taken longer than planned.",
+      "everyday": "I conceded that he was right about the shortcut."
+    },
+    "instead_of": "admit",
+    "weak": {
+      "sentence": "I'll admit that's true, the valuation is high, but growth justifies it.",
+      "phrase": "admit that's true,"
+    }
+  },
+  {
+    "word": "underpin",
+    "level": 5,
+    "pronunciation": "un-der-PIN",
+    "part_of_speech": "verb",
+    "category": "Analyzing a problem",
+    "definition": "to support something from beneath; to form its basis",
+    "hook": "In construction, underpinning is the support added beneath a wall's foundation.",
+    "examples": {
+      "interview": "Strong recurring revenue underpins my buy recommendation.",
+      "finance": "Low unemployment has underpinned consumer spending all year.",
+      "everyday": "Trust underpins every good team."
+    },
+    "instead_of": "is the base of",
+    "weak": {
+      "sentence": "Strong recurring revenue is the main base of my recommendation.",
+      "phrase": "is the main base of"
+    }
+  },
+  {
+    "word": "extrapolate",
+    "level": 5,
+    "pronunciation": "ik-STRAP-uh-layt",
+    "part_of_speech": "verb",
+    "category": "Analyzing a problem",
+    "definition": "to extend a known trend to predict something beyond it",
+    "hook": "From math: extending a line past your last data point. Its opposite, interpolate, fills in between points.",
+    "examples": {
+      "interview": "I was careful not to extrapolate too much from one strong quarter.",
+      "finance": "Analysts extrapolated recent growth and overestimated next year's earnings.",
+      "everyday": "Don't extrapolate from one bad date."
+    },
+    "instead_of": "assume it'll continue",
+    "weak": {
+      "sentence": "I didn't want to just assume it'll keep going from one strong quarter.",
+      "phrase": "just assume it'll keep going"
+    }
+  },
+  {
+    "word": "ramification",
+    "level": 5,
+    "pronunciation": "ram-uh-fuh-KAY-shun",
+    "part_of_speech": "noun",
+    "category": "Analyzing a problem",
+    "definition": "a consequence, often complicated or unwelcome",
+    "hook": "From Latin ramus, \"branch\": one decision branches into many results.",
+    "examples": {
+      "interview": "Before recommending the cut, I mapped out the ramifications for each department.",
+      "finance": "The ruling has ramifications for every company in the sector.",
+      "everyday": "I didn't think through the ramifications of moving off campus."
+    },
+    "instead_of": "effects",
+    "weak": {
+      "sentence": "I thought about all the effects and stuff for each department.",
+      "phrase": "effects and stuff"
+    }
+  },
+  {
+    "word": "impetus",
+    "level": 5,
+    "pronunciation": "IM-puh-tus",
+    "part_of_speech": "noun",
+    "category": "Talking about yourself",
+    "definition": "the force or reason that drives something to happen",
+    "hook": "Latin for \"attack\" or \"force\": the push that gets things moving.",
+    "examples": {
+      "interview": "Losing the case competition was the impetus for me to learn modeling properly.",
+      "finance": "Falling rates gave fresh impetus to the housing market.",
+      "everyday": "The deadline was the impetus I needed to start."
+    },
+    "instead_of": "what made me",
+    "weak": {
+      "sentence": "Losing the competition was what made me want to learn modeling.",
+      "phrase": "what made me want"
+    }
+  },
+  {
+    "word": "substantiate",
+    "level": 5,
+    "pronunciation": "sub-STAN-shee-ayt",
+    "part_of_speech": "verb",
+    "category": "Analyzing a problem",
+    "definition": "to prove a claim with evidence",
+    "hook": "To give a claim substance, so it isn't just words.",
+    "examples": {
+      "interview": "I substantiated the thesis with survey data from 200 customers.",
+      "finance": "The short seller's claims have not been substantiated.",
+      "everyday": "Can you substantiate that, or is it a rumor?"
+    },
+    "instead_of": "prove",
+    "weak": {
+      "sentence": "I proved the thesis was right using survey data.",
+      "phrase": "proved the thesis was right"
+    }
+  },
+  {
+    "word": "tenacious",
+    "level": 5,
+    "pronunciation": "tuh-NAY-shus",
+    "part_of_speech": "adjective",
+    "category": "Talking about yourself",
+    "definition": "determined and persistent; not giving up",
+    "hook": "From Latin tenere, \"to hold\": you keep your grip.",
+    "examples": {
+      "interview": "I was tenacious about finding a sponsor and reached out to forty firms before one said yes.",
+      "finance": "The fund is known for being tenacious in activist campaigns.",
+      "everyday": "He's a tenacious defender on the field."
+    },
+    "instead_of": "didn't give up",
+    "weak": {
+      "sentence": "I never gave up and kept trying to find a sponsor.",
+      "phrase": "never gave up and kept trying"
+    }
+  },
+  {
+    "word": "paramount",
+    "level": 5,
+    "pronunciation": "PAIR-uh-mount",
+    "part_of_speech": "adjective",
+    "category": "Giving your opinion",
+    "definition": "more important than anything else",
+    "hook": "From Old French par amont, \"above\": it sits above everything else.",
+    "examples": {
+      "interview": "In a client deliverable, accuracy is paramount, so I always do a second check.",
+      "finance": "For a bank, liquidity is paramount during a crisis.",
+      "everyday": "Safety is paramount on the climbing trip."
+    },
+    "instead_of": "the most important",
+    "weak": {
+      "sentence": "In a client deliverable, accuracy is like the most important thing.",
+      "phrase": "like the most important thing"
+    }
+  },
+  {
+    "word": "preempt",
+    "level": 5,
+    "pronunciation": "pree-EMPT",
+    "part_of_speech": "verb",
+    "category": "Strong verbs",
+    "definition": "to act before something happens, to prevent it or get ahead of it",
+    "hook": "Originally \"to buy before others could\": you claim the move first.",
+    "examples": {
+      "interview": "I preempted the client's questions by adding a sensitivity table to the deck.",
+      "finance": "The company cut guidance to preempt a disappointing quarter.",
+      "everyday": "I preempted the argument by apologizing first."
+    },
+    "instead_of": "get ahead of",
+    "weak": {
+      "sentence": "I tried to get ahead of the client's questions by adding a sensitivity table.",
+      "phrase": "tried to get ahead of"
+    }
+  },
+  {
+    "word": "headroom",
+    "level": 5,
+    "pronunciation": "HED-room",
+    "part_of_speech": "noun",
+    "category": "Markets and trends",
+    "definition": "room to grow or rise before hitting a limit",
+    "hook": "The space above your head before you hit the ceiling.",
+    "examples": {
+      "interview": "The company has pricing headroom, since it charges less than every competitor.",
+      "finance": "The bank has plenty of headroom above its capital requirements.",
+      "everyday": "There's still some headroom in my budget this month."
+    },
+    "instead_of": "room to grow",
+    "weak": {
+      "sentence": "The company still has a lot of room to raise prices.",
+      "phrase": "a lot of room to raise prices"
+    }
+  },
+  {
+    "word": "push back",
+    "level": 4,
+    "pronunciation": "",
+    "part_of_speech": "phrase",
+    "category": "Disagreeing politely",
+    "definition": "to politely disagree or resist an idea",
+    "hook": "A gentle push against an idea, not a shove.",
+    "examples": {
+      "interview": "I'd push back slightly on that, because the growth assumption looks aggressive.",
+      "finance": "Several large shareholders plan to push back on the proposed pay package.",
+      "everyday": "I had to push back when my group wanted to start the project the night before."
+    },
+    "instead_of": "I don't agree",
+    "weak": {
+      "sentence": "I don't really agree with that, the growth assumption looks aggressive.",
+      "phrase": "I don't really agree with that"
+    }
+  },
+  {
+    "word": "albeit",
+    "level": 5,
+    "pronunciation": "awl-BEE-it",
+    "part_of_speech": "conjunction",
+    "category": "Hedging and nuance",
+    "definition": "although; even though",
+    "hook": "Squeezed together from \"all be it,\" meaning \"although it be.\"",
+    "examples": {
+      "interview": "The strategy worked, albeit more slowly than we planned.",
+      "finance": "Margins improved, albeit from a low base.",
+      "everyday": "We made the flight, albeit with two minutes to spare."
+    },
+    "instead_of": "but",
+    "weak": {
+      "sentence": "The strategy worked, but it was slower than we planned.",
+      "phrase": "but it was"
+    }
+  },
+  {
+    "word": "galvanize",
+    "level": 5.5,
+    "pronunciation": "GAL-vuh-nize",
+    "part_of_speech": "verb",
+    "category": "Teamwork and conflict",
+    "definition": "to shock or inspire people into taking action",
+    "hook": "Named after Luigi Galvani, whose experiments made frog legs twitch with electricity.",
+    "examples": {
+      "interview": "Losing our first pitch galvanized the team, and we won the next two.",
+      "finance": "The CEO's plan galvanized shareholders to vote for the deal.",
+      "everyday": "The flood galvanized the town to raise money for repairs."
+    },
+    "instead_of": "got everyone going",
+    "weak": {
+      "sentence": "Losing our first pitch really got everyone going.",
+      "phrase": "really got everyone going"
+    }
+  },
+  {
+    "word": "juxtapose",
+    "level": 5.5,
+    "pronunciation": "JUK-stuh-pohz",
+    "part_of_speech": "verb",
+    "category": "Analyzing a problem",
+    "definition": "to place two things side by side to compare them",
+    "hook": "From Latin juxta, \"next to,\" plus \"pose\": to place next to.",
+    "examples": {
+      "interview": "I juxtaposed the two companies' margins to show why one deserved a higher multiple.",
+      "finance": "The report juxtaposes record profits with falling wages.",
+      "everyday": "The photo juxtaposes old buildings with new skyscrapers."
+    },
+    "instead_of": "put next to each other",
+    "weak": {
+      "sentence": "I put the two companies' margins next to each other to compare.",
+      "phrase": "put the two companies' margins next to each other"
+    }
+  },
+  {
+    "word": "conducive",
+    "level": 5.5,
+    "pronunciation": "kun-DOO-siv",
+    "part_of_speech": "adjective",
+    "category": "Analyzing a problem",
+    "definition": "making a certain outcome more likely",
+    "hook": "From Latin conducere, \"to lead together\": it leads toward the result. Almost always \"conducive to.\"",
+    "examples": {
+      "interview": "Small teams are more conducive to learning quickly, which is why I like boutique banks.",
+      "finance": "Low rates are conducive to more M&A activity.",
+      "everyday": "The library is more conducive to studying than my room."
+    },
+    "instead_of": "good for",
+    "weak": {
+      "sentence": "Small teams are really good for learning quickly.",
+      "phrase": "really good for"
+    }
+  },
+  {
+    "word": "myopic",
+    "level": 5.5,
+    "pronunciation": "my-OP-ik",
+    "part_of_speech": "adjective",
+    "category": "Giving your opinion",
+    "definition": "focused only on the short term; lacking foresight",
+    "hook": "The medical word for nearsighted: you only see what's right in front of you.",
+    "examples": {
+      "interview": "Cutting the R&D budget to hit one quarter's numbers would have been myopic.",
+      "finance": "Critics call the buyback myopic, given the company's debt load.",
+      "everyday": "Skipping class to sleep in is a little myopic before finals."
+    },
+    "instead_of": "short-sighted",
+    "weak": {
+      "sentence": "Cutting R&D to hit one quarter would have been kind of short-sighted.",
+      "phrase": "kind of short-sighted"
+    }
+  },
+  {
+    "word": "bellwether",
+    "level": 6,
+    "pronunciation": "BEL-weth-er",
+    "part_of_speech": "noun",
+    "category": "Markets and trends",
+    "definition": "something that leads or signals a wider trend",
+    "hook": "The lead sheep (a wether) wore a bell, and the flock followed it.",
+    "examples": {
+      "interview": "I follow FedEx's earnings because it's a bellwether for global trade.",
+      "finance": "Semiconductor stocks are often a bellwether for the broader tech sector.",
+      "everyday": "That county is a bellwether in presidential elections."
+    },
+    "instead_of": "sign of what's coming",
+    "weak": {
+      "sentence": "FedEx's earnings are a good sign of what's coming for global trade.",
+      "phrase": "a good sign of what's coming"
+    }
+  },
+  {
+    "word": "idiosyncratic",
+    "level": 6,
+    "pronunciation": "id-ee-oh-sin-KRAT-ik",
+    "part_of_speech": "adjective",
+    "category": "Markets and trends",
+    "definition": "specific to one person or thing; peculiar to it",
+    "hook": "From Greek idios, \"one's own.\" In finance, idiosyncratic risk is risk that belongs to one company, not the whole market.",
+    "examples": {
+      "interview": "The drop was idiosyncratic to the company, not a sector-wide problem.",
+      "finance": "Diversification reduces idiosyncratic risk but not market risk.",
+      "everyday": "He has an idiosyncratic way of organizing his notes."
+    },
+    "instead_of": "specific to them",
+    "weak": {
+      "sentence": "The drop was just a thing specific to that one company.",
+      "phrase": "just a thing specific to"
+    }
+  }
+]
