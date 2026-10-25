@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/Brundawgg/vocab-mailer#readme",
   "dependencies": {
-    "node-ical": "^0.27.3",
     "nodemailer": "^10.2.1"
   }
 }

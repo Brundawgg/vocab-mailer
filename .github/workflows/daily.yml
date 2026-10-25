@@ -15,6 +15,10 @@ on:
         description: "Send a [Test] copy of the next email and show the calendar's pick (records nothing)"
         type: boolean
         default: false
+      check:
+        description: "Only show the calendar's pick for the next email; send nothing"
+        type: boolean
+        default: false
 
 concurrency:
   group: send
@@ -34,13 +38,14 @@ jobs:
           cache: npm
       - run: npm ci
       - name: Send today's email if it's time
-        run: node send.js ${{ inputs.now && '--now' || '' }} ${{ inputs.test && '--test' || '' }}
+        run: node send.js ${{ inputs.now && '--now' || '' }} ${{ inputs.test && '--test' || '' }} ${{ inputs.check && '--test --dry-run' || '' }}
         env:
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           TO_EMAIL: ${{ secrets.TO_EMAIL }}
-          CALENDAR_URLS: ${{ secrets.CALENDAR_URLS }}
-          CLASS_SCHEDULE: ${{ secrets.CLASS_SCHEDULE }}
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
       - name: Record that it was sent
         run: |
           if [ -n "$(git status --porcelain state)" ]; then

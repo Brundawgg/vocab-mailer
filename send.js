@@ -11,7 +11,8 @@ const path = require("path");
 const nodemailer = require("nodemailer");
 const words = require("./words.json");
 const { START_DATE, localParts, planFor } = require("./src/schedule");
-const { eventsOn, classEventsOn, blockedIntervals, firstOpening, isBlocked, isChat } = require("./src/calendar");
+const { blockedIntervals, firstOpening, isBlocked, isChat } = require("./src/calendar");
+const { googleEventsOn } = require("./src/google");
 const { wordEmail, quizEmail } = require("./src/email");
 
 const LATEST = 12 * 60 + 30; // past this, send regardless of the calendar
@@ -29,11 +30,10 @@ function readState() {
   try { return JSON.parse(fs.readFileSync(STATE_PATH, "utf8")); } catch { return {}; }
 }
 
-// Calendar events (CALENDAR_URLS) plus weekly class times (CLASS_SCHEDULE) for one day.
+// Timed events across all of the Google account's calendars for one day.
 async function eventsFor(key) {
-  const urls = (process.env.CALENDAR_URLS || "").split(/\s+/).filter(Boolean);
-  const events = urls.length ? await eventsOn(urls, key) : [];
-  return events.concat(classEventsOn(process.env.CLASS_SCHEDULE, key)).sort((a, b) => a.start - b.start);
+  if (!process.env.GOOGLE_REFRESH_TOKEN) return [];
+  return (await googleEventsOn(key)).sort((a, b) => a.start - b.start);
 }
 
 async function shouldSendNow(key, minutes) {
