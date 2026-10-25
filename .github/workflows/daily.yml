@@ -1,11 +1,47 @@
 name: Daily vocab email
 
 on:
+  # Every 15 minutes from 8:00am to 1:45pm Pacific (GitHub runs on UTC). send.js decides
+  # whether this run is the right moment and sends at most once per day.
+  schedule:
+    - cron: "*/15 15-20 * * *"
   workflow_dispatch:
-  # schedule added in step 7
+    inputs:
+      now:
+        description: "Send today's email right away, ignoring the calendar"
+        type: boolean
+        default: false
+
+concurrency:
+  group: send
+  cancel-in-progress: false
+
+permissions:
+  contents: write
 
 jobs:
   send:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "TODO"
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Send today's email if it's time
+        run: node send.js ${{ inputs.now && '--now' || '' }}
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          TO_EMAIL: ${{ secrets.TO_EMAIL }}
+          CALENDAR_URLS: ${{ secrets.CALENDAR_URLS }}
+      - name: Record that it was sent
+        run: |
+          if [ -n "$(git status --porcelain state)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add state
+            git commit -m "Record sent email"
+            git push
+          fi

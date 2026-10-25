@@ -1,0 +1,28 @@
+{
+  "name": "vocab-mailer",
+  "version": "1.0.0",
+  "description": "Emails a new vocabulary word to my inbox every morning.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Brundawgg/vocab-mailer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Brundawgg/vocab-mailer/issues"
+  },
+  "homepage": "https://github.com/Brundawgg/vocab-mailer#readme",
+  "dependencies": {
+    "node-ical": "^0.27.3",
+    "nodemailer": "^10.2.1"
+  }
+}
