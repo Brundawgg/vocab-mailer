@@ -11,6 +11,10 @@ on:
         description: "Send today's email right away, ignoring the calendar"
         type: boolean
         default: false
+      test:
+        description: "Send a [Test] copy of the next email and show the calendar's pick (records nothing)"
+        type: boolean
+        default: false
 
 concurrency:
   group: send
@@ -30,7 +34,7 @@ jobs:
           cache: npm
       - run: npm ci
       - name: Send today's email if it's time
-        run: node send.js ${{ inputs.now && '--now' || '' }}
+        run: node send.js ${{ inputs.now && '--now' || '' }} ${{ inputs.test && '--test' || '' }}
         env:
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}

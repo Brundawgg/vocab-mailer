@@ -5,12 +5,13 @@
 //   node send.js --dry-run        build today's email into out/ without sending
 //   node send.js --date=2026-10-31 --dry-run   preview another day
 //   node send.js --now            send immediately, ignoring the calendar (still once per day)
+//   node send.js --test           send a "[Test]" copy of the next email now and print the calendar's pick; records nothing
 const fs = require("fs");
 const path = require("path");
 const nodemailer = require("nodemailer");
 const words = require("./words.json");
-const { localParts, planFor } = require("./src/schedule");
-const { eventsOn, blockedIntervals, firstOpening, isBlocked } = require("./src/calendar");
+const { START_DATE, localParts, planFor } = require("./src/schedule");
+const { eventsOn, blockedIntervals, firstOpening, isBlocked, isChat } = require("./src/calendar");
 const { wordEmail, quizEmail } = require("./src/email");
 
 const LATEST = 12 * 60 + 30; // past this, send regardless of the calendar
@@ -47,13 +48,27 @@ async function shouldSendNow(key, minutes) {
 
 async function main() {
   const now = localParts();
-  const key = option("date") || now.key;
+  const test = flag("test");
+  let key = option("date") || now.key;
+  if (test && planFor(key, words.length).kind === "none") key = START_DATE;
   const plan = planFor(key, words.length);
   if (plan.kind === "none") return console.log(`${key}: nothing to send (${plan.reason})`);
 
   const email = plan.kind === "quiz"
     ? quizEmail(plan.indexes.map(i => words[i]), plan.week, key)
     : wordEmail(words[plan.index], plan.index + 1);
+  if (test) {
+    email.subject = "[Test] " + email.subject;
+    const urls = (process.env.CALENDAR_URLS || "").split(/\s+/).filter(Boolean);
+    if (urls.length) {
+      const events = await eventsOn(urls, key);
+      console.log(`Calendar for ${key}: ${events.length} timed events`);
+      for (const ev of events) console.log(`  ${hhmm(ev.start)}-${hhmm(ev.end)}  ${isChat(ev.title) ? "[chat] " : ""}${ev.title}`);
+      console.log(`Email would go out at ${hhmm(firstOpening(blockedIntervals(events)))}`);
+    } else {
+      console.log("No calendars configured; email would go out at 8:30am");
+    }
+  }
 
   if (flag("dry-run")) {
     fs.mkdirSync(path.join(__dirname, "out"), { recursive: true });
@@ -63,9 +78,9 @@ async function main() {
   }
 
   const state = readState();
-  if (state[key]) return console.log(`${key}: already sent "${state[key].subject}" at ${state[key].at}`);
+  if (!test && state[key]) return console.log(`${key}: already sent "${state[key].subject}" at ${state[key].at}`);
 
-  if (!flag("now")) {
+  if (!test && !flag("now")) {
     const decision = await shouldSendNow(key, now.minutes);
     console.log(`${key} ${hhmm(now.minutes)}: ${decision.why}`);
     if (!decision.send) return;
@@ -75,6 +90,7 @@ async function main() {
   if (!GMAIL_USER || !GMAIL_APP_PASSWORD || !TO_EMAIL) throw new Error("Set GMAIL_USER, GMAIL_APP_PASSWORD and TO_EMAIL");
   const transport = nodemailer.createTransport({ host: "smtp.gmail.com", port: 465, secure: true, auth: { user: GMAIL_USER, pass: GMAIL_APP_PASSWORD } });
   await transport.sendMail({ from: `Lexicon <${GMAIL_USER}>`, to: TO_EMAIL, subject: email.subject, html: email.html, text: email.text });
+  if (test) return console.log(`Test email "${email.subject}" sent`);
 
   state[key] = { subject: email.subject, at: new Date().toISOString() };
   fs.mkdirSync(path.dirname(STATE_PATH), { recursive: true });
