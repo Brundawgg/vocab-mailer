@@ -1,6 +1,6 @@
 // Which email goes out on a given day. Matches the practice page: one new word per day
 // starting START_DATE, except Saturdays, which get a weekly quiz on the past week's words.
-const START_DATE = "2026-10-26";
+const START_DATE = "2026-10-25";
 const TIME_ZONE = "America/Los_Angeles";
 
 function parseKey(key) {
