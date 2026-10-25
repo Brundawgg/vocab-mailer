@@ -11,7 +11,7 @@ const path = require("path");
 const nodemailer = require("nodemailer");
 const words = require("./words.json");
 const { START_DATE, localParts, planFor } = require("./src/schedule");
-const { eventsOn, blockedIntervals, firstOpening, isBlocked, isChat } = require("./src/calendar");
+const { eventsOn, classEventsOn, blockedIntervals, firstOpening, isBlocked, isChat } = require("./src/calendar");
 const { wordEmail, quizEmail } = require("./src/email");
 
 const LATEST = 12 * 60 + 30; // past this, send regardless of the calendar
@@ -29,14 +29,19 @@ function readState() {
   try { return JSON.parse(fs.readFileSync(STATE_PATH, "utf8")); } catch { return {}; }
 }
 
+// Calendar events (CALENDAR_URLS) plus weekly class times (CLASS_SCHEDULE) for one day.
+async function eventsFor(key) {
+  const urls = (process.env.CALENDAR_URLS || "").split(/\s+/).filter(Boolean);
+  const events = urls.length ? await eventsOn(urls, key) : [];
+  return events.concat(classEventsOn(process.env.CLASS_SCHEDULE, key)).sort((a, b) => a.start - b.start);
+}
+
 async function shouldSendNow(key, minutes) {
   if (minutes < 8 * 60 + 30) return { send: false, why: `too early (${hhmm(minutes)})` };
   if (minutes >= LATEST) return { send: true, why: "late-morning fallback" };
-  const urls = (process.env.CALENDAR_URLS || "").split(/\s+/).filter(Boolean);
-  if (!urls.length) return { send: true, why: "no calendars configured" };
   let blocked;
   try {
-    blocked = blockedIntervals(await eventsOn(urls, key));
+    blocked = blockedIntervals(await eventsFor(key));
   } catch (e) {
     return { send: true, why: "calendar unavailable (" + e.message + ")" };
   }
@@ -59,15 +64,10 @@ async function main() {
     : wordEmail(words[plan.index], plan.index + 1);
   if (test) {
     email.subject = "[Test] " + email.subject;
-    const urls = (process.env.CALENDAR_URLS || "").split(/\s+/).filter(Boolean);
-    if (urls.length) {
-      const events = await eventsOn(urls, key);
-      console.log(`Calendar for ${key}: ${events.length} timed events`);
-      for (const ev of events) console.log(`  ${hhmm(ev.start)}-${hhmm(ev.end)}  ${isChat(ev.title) ? "[chat] " : ""}${ev.title}`);
-      console.log(`Email would go out at ${hhmm(firstOpening(blockedIntervals(events)))}`);
-    } else {
-      console.log("No calendars configured; email would go out at 8:30am");
-    }
+    const events = await eventsFor(key);
+    console.log(`Calendar for ${key}: ${events.length} timed events`);
+    for (const ev of events) console.log(`  ${hhmm(ev.start)}-${hhmm(ev.end)}  ${isChat(ev.title) ? "[chat] " : ""}${ev.title}`);
+    console.log(`Email would go out at ${hhmm(firstOpening(blockedIntervals(events)))}`);
   }
 
   if (flag("dry-run")) {

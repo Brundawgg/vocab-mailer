@@ -40,6 +40,7 @@ jobs:
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           TO_EMAIL: ${{ secrets.TO_EMAIL }}
           CALENDAR_URLS: ${{ secrets.CALENDAR_URLS }}
+          CLASS_SCHEDULE: ${{ secrets.CLASS_SCHEDULE }}
       - name: Record that it was sent
         run: |
           if [ -n "$(git status --porcelain state)" ]; then
