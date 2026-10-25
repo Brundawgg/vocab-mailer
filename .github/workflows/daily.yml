@@ -1,0 +1,11 @@
+name: Daily vocab email
+
+on:
+  workflow_dispatch:
+  # schedule added in step 7
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "TODO"
