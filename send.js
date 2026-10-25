@@ -62,6 +62,9 @@ async function main() {
   const email = plan.kind === "quiz"
     ? quizEmail(plan.indexes.map(i => words[i]), plan.week, key)
     : wordEmail(words[plan.index], plan.index + 1);
+  // The date keeps every subject unique, so Gmail starts a new conversation each day instead of threading.
+  const [y, m, d] = key.split("-").map(Number);
+  email.subject += " · " + new Date(Date.UTC(y, m - 1, d)).toLocaleDateString("en-US", { timeZone: "UTC", weekday: "short", month: "short", day: "numeric" }).replace(",", "");
   if (test) {
     email.subject = "[Test] " + email.subject;
     const events = await eventsFor(key);
